@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+
+
+import Banner from "../components/Banner";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 
@@ -7,52 +10,69 @@ const LoginSignup = () => {
 	const [activeTab, setActiveTab] = useState("signup");
 
 	return (
-		<View style={styles.loginSignupContainer}>
-			<View style={styles.tab}>
-				<TouchableOpacity
-					style={[
-						styles.tabButtons,
-						activeTab === "signup" ? styles.activeTabButton : {},
-					]}
-					onPress={() => setActiveTab("signup")}
-				>
-					<Text
-						style={[
-							styles.signupButton,
-							activeTab === "signup" ? styles.active : {},
-						]}
-					>
-						Sign Up
-					</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
-					style={[
-						styles.tabButtons,
-						activeTab === "login" ? styles.activeTabButton : {},
-					]}
-					onPress={() => setActiveTab("login")}
-				>
-					<Text
-						style={[
-							styles.loginButton,
-							activeTab === "login" ? styles.active : {},
-						]}
-					>
-						Log In
-					</Text>
-				</TouchableOpacity>
-			</View>
+		<View style={styles.container}>
+			<ScrollView contentContainerStyle={styles.scrollView}>
+				<Banner />
+				<View style={styles.loginSignupContainer}>
+					<View style={styles.tab}>
+						<TouchableOpacity
+							style={[
+								styles.tabButtons,
+								activeTab === "signup" ? styles.activeTabButton : {},
+							]}
+							onPress={() => setActiveTab("signup")}
+						>
+							<Text
+								style={[
+									styles.signupButton,
+									activeTab === "signup" ? styles.active : {},
+								]}
+							>
+								Sign Up
+							</Text>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={[
+								styles.tabButtons,
+								activeTab === "login" ? styles.activeTabButton : {},
+							]}
+							onPress={() => setActiveTab("login")}
+						>
+							<Text
+								style={[
+									styles.loginButton,
+									activeTab === "login" ? styles.active : {},
+								]}
+							>
+								Log In
+							</Text>
+						</TouchableOpacity>
+					</View>
 
-			{activeTab === "signup" ? (
-				<Signup setActiveTab={setActiveTab} />
-			) : (
-				<Login setActiveTab={setActiveTab} />
-			)}
+					{activeTab === "signup" ? (
+						<Signup setActiveTab={setActiveTab} />
+					) : (
+						<Login setActiveTab={setActiveTab} />
+					)}
+				</View>
+			</ScrollView>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#fff",
+		height: "100%",
+		// fontFamily: "Red Rose",
+	},
+	scrollView: {
+		flexGrow: 1,
+		flexDirection: "column",
+		alignItems: "center",
+		paddingBottom: 20,
+	},
 	loginSignupContainer: {
 		alignItems: "center",
 		backgroundColor: "#fff",
