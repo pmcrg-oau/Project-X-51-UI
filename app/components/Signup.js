@@ -4,13 +4,12 @@ import {
 	View,
 	Text,
 	TextInput,
-	TouchableOpacity,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 import Button from "./Button";
 
-const Signup = ({ setActiveTab }) => {
+const Signup = ({ setActiveTab, setLoggedIn }) => {
 	const {
 		control,
 		handleSubmit,
@@ -78,7 +77,7 @@ const Signup = ({ setActiveTab }) => {
 
 			<Button
 				text={"Create Account"}
-				onPress={() => null}
+				onPress={() => setLoggedIn(true)}
 				buttonStyle={styles.buttonStyle}
 				textStyle={styles.buttonTextStyle}
 			/>

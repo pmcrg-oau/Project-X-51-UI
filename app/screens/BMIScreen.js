@@ -9,37 +9,35 @@ const Stack = createStackNavigator();
 
 const BMIScreen = () => {
 	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				headerMode="screen"
-				screenOptions={{
-					headerShown: true,
-					headerStyle: {
-						backgroundColor: "#ed4949",
-					},
-					headerTintColor: "#fff",
-					headerTitleStyle: {
-						fontWeight: "bold",
-					},
+		<Stack.Navigator
+			headerMode="screen"
+			screenOptions={{
+				headerShown: true,
+				headerStyle: {
+					backgroundColor: "#ed4949",
+				},
+				headerTintColor: "#fff",
+				headerTitleStyle: {
+					fontWeight: "bold",
+				},
+			}}
+		>
+			<Stack.Screen
+				name="BMICalculator"
+				component={BMICalculator}
+				options={{
+					title: "Calculate BMI",
 				}}
-			>
-				<Stack.Screen
-					name="BMICalculator"
-					component={BMICalculator}
-					options={{
-						title: "Calculate BMI",
-					}}
-				/>
-				<Stack.Screen
-					name="BMIResult"
-					component={BMIResult}
-					options={{
-						title: "BMI Result",
-                        headerBackTitle: 'Back'
-					}}
-				/>
-			</Stack.Navigator>
-		</NavigationContainer>
+			/>
+			<Stack.Screen
+				name="BMIResult"
+				component={BMIResult}
+				options={{
+					title: "BMI Result",
+					headerBackTitle: "Back",
+				}}
+			/>
+		</Stack.Navigator>
 	);
 };
 

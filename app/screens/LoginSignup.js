@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 
 
 import Banner from "../components/Banner";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 
-const LoginSignup = () => {
+const LoginSignup = ({ setLoggedIn }) => {
 	const [activeTab, setActiveTab] = useState("signup");
 
 	return (
@@ -50,9 +50,9 @@ const LoginSignup = () => {
 					</View>
 
 					{activeTab === "signup" ? (
-						<Signup setActiveTab={setActiveTab} />
+						<Signup setActiveTab={setActiveTab} setLoggedIn={setLoggedIn}/>
 					) : (
-						<Login setActiveTab={setActiveTab} />
+						<Login setActiveTab={setActiveTab} setLoggedIn={setLoggedIn}/>
 					)}
 				</View>
 			</ScrollView>
