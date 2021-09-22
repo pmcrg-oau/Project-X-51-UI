@@ -16,4 +16,9 @@ const Button = ({ text, onPress, textStyle, buttonStyle }) => {
 	);
 };
 
+Button.defaultProps = {
+	onPress: () => null,
+	text: 'Input text Please!'
+}
+
 export default Button;
