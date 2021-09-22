@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
 	bannerContainer: {
 		backgroundColor: "#ed4949",
 		width: "100%",
-		height: 219,
+		minHeight: 219,
 		borderRadius: 10,
 		overflow: "hidden",
 		marginTop: -10,

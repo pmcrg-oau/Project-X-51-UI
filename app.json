@@ -1,12 +1,14 @@
 {
-	"expo": {
-		"name": "projectx-51",
-		"slug": "projectx-51",
-		"version": "1.0.0",
-		"assetBundlePatterns": ["**/*"],
-		"description": "This is the UI project setup for the X-51 Project. A weight-loss app helping users come up with a reduction ration for losing weight. This is built on React Native.",
-		"githubUrl": "https://github.com/pmcrg-oau/Project-X-51-UI",
-		"userInterfaceStyle": "automatic"
-	},
-	"name": "projectx-51"
+  "expo": {
+    "name": "projectx-51",
+    "slug": "projectx-51",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "This is the UI project setup for the X-51 Project. A weight-loss app helping users come up with a reduction ration for losing weight. This is built on React Native.",
+    "githubUrl": "https://github.com/pmcrg-oau/Project-X-51-UI",
+    "userInterfaceStyle": "automatic"
+  },
+  "name": "projectx-51"
 }
