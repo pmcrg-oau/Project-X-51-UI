@@ -115,6 +115,7 @@ const bannerStyles = StyleSheet.create({
 		overflow: "hidden",
 		alignItems: "center",
 		marginTop: -10,
+		paddingVertical: 25,
 	},
 	logoContainer: {
 		width: "100%",
@@ -123,7 +124,6 @@ const bannerStyles = StyleSheet.create({
 		overflow: "hidden",
 		alignItems: "center",
 		justifyContent: "center",
-		marginVertical: 25,
 		shadowColor: "#000",
 		shadowOffset: {
 			width: 0,
@@ -147,7 +147,7 @@ const bannerStyles = StyleSheet.create({
 	paramPreview: {
 		backgroundColor: "#fff",
 		width: "100%",
-		height: 110,
+		minHeight: 110,
 		maxWidth: 272,
 		alignItems: "center",
 		borderRadius: 20,
