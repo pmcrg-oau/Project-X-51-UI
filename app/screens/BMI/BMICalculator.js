@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
-import Banner from "../components/Banner";
-import BMICalculatorForm from "../components/BMICalculatorForm";
+import Banner from "../../components/Banner";
+import BMICalculatorForm from "../../components/BMICalculatorForm";
 
 const BMICalculator = ({ navigation }) => {
 	const [gender, setGender] = useState("female");

@@ -3,27 +3,27 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useFonts } from "expo-font";
 // import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { EvilIcons, AntDesign } from "@expo/vector-icons";
+import { createStackNavigator } from "@react-navigation/stack";
+import { AntDesign } from "@expo/vector-icons";
 
 import LoginSignup from "./app/screens/LoginSignup";
-import BMIScreen from "./app/screens/BMIScreen";
-import Dashboard from "./app/screens/Dashboard";
-import CustomDrawerContainer from "./app/components/CustomDrawerContainer";
-import Profile from "./app/screens/Profile";
 import SplashScreen from "./app/screens/SplashScreen";
+import MealPlan from "./app/screens/Home/MealPlan";
+import Workout from "./app/screens/Home/Workout";
+import Water from "./app/screens/Home/Water";
+import DrawerScreen from "./app/screens/DrawerScreen";
 
 export default function App() {
 	const [showSplashScreen, setShowSplashScreen] = useState(true);
 	const [loggedIn, setLoggedIn] = useState(true);
-	const Drawer = createDrawerNavigator();
+	const Stack = createStackNavigator();
 
 	let [fontsLoaded] = useFonts({
 		"Red Rose": require("./app/assets/fonts/RedRose-VariableFont_wght.ttf"),
 	});
 
 	useEffect(() => {
-		if(fontsLoaded) {
+		if (fontsLoaded) {
 			setTimeout(() => {
 				setShowSplashScreen(false);
 			}, 2000);
@@ -36,53 +36,20 @@ export default function App() {
 		return (
 			<NavigationContainer>
 				{loggedIn ? (
-					<Drawer.Navigator
-						initialRouteName="Home"
-						drawerContent={(props) => (
-							<CustomDrawerContainer setLoggedIn={setLoggedIn} {...props} />
-						)}
+					<Stack.Navigator
+						headerMode="screen"
 					>
-						<Drawer.Screen
-							name="Home"
-							component={Dashboard}
-							options={({ navigation }) => ({
-								drawerLabel: () => null,
-								title: null,
-								headerLeft: () => (
-									<TouchableOpacity onPress={() => navigation.openDrawer()}>
-										<EvilIcons
-											style={styles.iconStyle}
-											name={"navicon"}
-											size={35}
-											color={"#ED4949"}
-										/>
-									</TouchableOpacity>
-								),
-							})}
+						<Stack.Screen
+							name="Drawer"
+							children={() => <DrawerScreen setLoggedIn={setLoggedIn} />}
+							options={{
+								headerShown: false,
+							}}
 						/>
-						<Drawer.Screen
-							name="BMIScreen"
-							component={BMIScreen}
+						<Stack.Screen
+							name="Meal Plan"
+							component={MealPlan}
 							options={({ navigation }) => ({
-								drawerLabel: () => null,
-								title: null,
-								headerLeft: () => (
-									<TouchableOpacity onPress={() => navigation.openDrawer()}>
-										<EvilIcons
-											style={styles.iconStyle}
-											name={"navicon"}
-											size={35}
-											color={"#ED4949"}
-										/>
-									</TouchableOpacity>
-								),
-							})}
-						/>
-						<Drawer.Screen
-							name="Profile"
-							component={Profile}
-							options={({ navigation }) => ({
-								drawerLabel: () => null,
 								title: null,
 								headerLeft: () => (
 									<TouchableOpacity onPress={() => navigation.goBack()}>
@@ -95,11 +62,51 @@ export default function App() {
 									</TouchableOpacity>
 								),
 								headerRight: () => (
-									<Text style={styles.headerTextStyle}>Profile</Text>
+									<Text style={styles.headerTextStyle}>Meal Plan</Text>
 								),
 							})}
 						/>
-					</Drawer.Navigator>
+						<Stack.Screen
+							name="Workout"
+							component={Workout}
+							options={({ navigation }) => ({
+								title: null,
+								headerLeft: () => (
+									<TouchableOpacity onPress={() => navigation.goBack()}>
+										<AntDesign
+											style={styles.iconStyle}
+											name={"arrowleft"}
+											size={35}
+											color={"#ED4949"}
+										/>
+									</TouchableOpacity>
+								),
+								headerRight: () => (
+									<Text style={styles.headerTextStyle}>Workout</Text>
+								),
+							})}
+						/>
+						<Stack.Screen
+							name="Water"
+							component={Water}
+							options={({ navigation }) => ({
+								title: null,
+								headerLeft: () => (
+									<TouchableOpacity onPress={() => navigation.goBack()}>
+										<AntDesign
+											style={styles.iconStyle}
+											name={"arrowleft"}
+											size={35}
+											color={"#ED4949"}
+										/>
+									</TouchableOpacity>
+								),
+								headerRight: () => (
+									<Text style={styles.headerTextStyle}>Water</Text>
+								),
+							})}
+						/>
+					</Stack.Navigator>
 				) : (
 					<>
 						<LoginSignup setLoggedIn={setLoggedIn} />
@@ -115,8 +122,8 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 	},
 	headerTextStyle: {
-		color: '#ed4949',
+		color: "#ed4949",
 		fontSize: 18,
-		paddingRight: 10
-	}
+		paddingRight: 10,
+	},
 });

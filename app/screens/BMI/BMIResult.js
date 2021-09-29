@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
-import Banner from "../components/Banner";
-import Button from "../components/Button";
+import Banner from "../../components/Banner";
+import Button from "../../components/Button";
 
 const BMIResult = ({ navigation }) => {
 	return (

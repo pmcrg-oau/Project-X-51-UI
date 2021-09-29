@@ -4,17 +4,16 @@ import {
 	Text,
 	StyleSheet,
 	ScrollView,
-	FlatList,
-	Image,
 	TouchableOpacity,
 	TouchableHighlight,
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-import CustomButton from "../components/Button";
-import GoalButton from "../components/GoalButton";
-import DATA from "../dummyData/topDietsData";
+import DATA from "../../dummyData/topDietsData";
+import TopDietsSection from "../../components/TopDietsSection";
+import DailyIntakeContainer from "../../components/DailyIntakeContainer";
+import DailyGoals from "../../components/DailyGoals";
 
 const CustomCancelButton = ({ onPress }) => (
 	<TouchableHighlight
@@ -59,7 +58,7 @@ const CustomConfirmButton = ({ onPress }) => (
 	</TouchableHighlight>
 );
 
-const Dashboard = () => {
+const Dashboard = ({ navigation }) => {
 	const now = new Date().getTime();
 	const [date, setDate] = useState(new Date(now));
 	const [show, setShow] = useState(false);
@@ -122,49 +121,14 @@ const Dashboard = () => {
 				</View>
 
 				<View style={styles.dashboardContainer}>
-					<Text style={styles.titleText}>Daily Goals</Text>
-					<View style={styles.goalButtonsContainer}>
-						<GoalButton
-							text={"Meal Plan"}
-							imageSrc={require("../assets/images/plate.png")}
-						/>
-						<GoalButton
-							text={"Workout"}
-							imageSrc={require("../assets/images/workout.png")}
-							imageStyle={{
-								width: 80,
-								height: 62,
-								resizeMode: "contain",
-								marginLeft: 20,
-							}}
-						/>
-						<GoalButton
-							text={"Water"}
-							imageSrc={require("../assets/images/water.png")}
-						/>
-					</View>
-					<View style={styles.dailyIntakeContainer}>
-						<Text style={styles.dailyIntakeText}>Daily intake</Text>
-						<Text style={styles.intakeResult}>4600KCal</Text>
-						<Text style={styles.nutritionBreakText}>
-							Carbs(50%) Protein(30%) Fat(20%)
-						</Text>
-					</View>
-					<View style={styles.topDietsContainer}>
-						<View style={styles.topDietsTop}>
-							<Text style={styles.topDietsTopTitle}>Top Diets</Text>
-							<CustomButton text={"See All"} textStyle={styles.seeAll} />
-						</View>
-						<FlatList
-							data={DATA}
-							renderItem={({ item }) => (
-								<Image style={styles.topDietsImage} source={item.imageSrc} />
-							)}
-							keyExtractor={(item) => item.id}
-							horizontal={true}
-							initialNumToRender={4}
-						/>
-					</View>
+					{/* Daily Goals */}
+					<DailyGoals navigation={navigation}/>
+					
+					{/* Daily Intake Container */}
+					<DailyIntakeContainer />
+
+					{/* Top Diets Section */}
+					<TopDietsSection data={DATA}/>
 				</View>
 			</ScrollView>
 		</View>
@@ -251,62 +215,6 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		marginBottom: 30,
-	},
-	dailyIntakeContainer: {
-		width: "85%",
-		backgroundColor: "#ed4949",
-		borderRadius: 20,
-		paddingHorizontal: 20,
-		paddingVertical: 20,
-	},
-	dailyIntakeText: {
-		fontWeight: "bold",
-		color: "rgba(196, 196, 196, 0.53)",
-		fontSize: 12,
-		marginBottom: 5,
-		fontFamily: "Red Rose",
-	},
-	intakeResult: {
-		fontWeight: "bold",
-		color: "#fff",
-		fontSize: 36,
-		marginBottom: 15,
-		fontFamily: "Red Rose",
-	},
-	nutritionBreakText: {
-		color: "#c4c4c4",
-		fontWeight: "bold",
-		fontSize: 12,
-		fontFamily: "Red Rose",
-	},
-	topDietsContainer: {
-		width: "85%",
-		marginTop: 30,
-	},
-	topDietsTop: {
-		width: "100%",
-		flexDirection: "row",
-		justifyContent: "space-between",
-		alignItems: "center",
-		marginBottom: 10,
-	},
-	topDietsTopTitle: {
-		fontSize: 24,
-		color: "#ed4949",
-		fontWeight: "bold",
-		fontFamily: "Red Rose",
-	},
-	seeAll: {
-		fontSize: 12,
-		fontWeight: "bold",
-		color: "#c4c4c4",
-		fontFamily: "Red Rose",
-	},
-	topDietsImage: {
-		width: 70,
-		height: 70,
-		resizeMode: "contain",
-		marginRight: 5,
 	},
 });
 

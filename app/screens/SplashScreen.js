@@ -6,7 +6,7 @@ const SplashScreen = () => {
 	return (
 		<View style={styles.background}>
 			<View style={styles.whiteSplash}>
-				<Image source={require("../assets/images/splash-screen.png")} />
+				<Image style={styles.whiteSplashImage} source={require("../assets/images/splash-screen.png")} />
 			</View>
 			<View style={styles.bottomContent}>
 				<Text style={styles.bottomContentText}>
@@ -38,8 +38,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "#ed4949",
 	},
 	whiteSplash: {
+		width: '100%',
 		height: "50%",
 		marginBottom: 20,
+	},
+	whiteSplashImage: {
+		width: '100%',
+		height: "100%",
 	},
 	bottomContent: {
 		height: "50%",
