@@ -152,6 +152,7 @@ const bannerStyles = StyleSheet.create({
 		alignItems: "center",
 		borderRadius: 20,
 		paddingVertical: 12,
+        marginVertical: 25
 	},
 	titleText: {
 		color: "rgba(237, 73, 73, 0.75)",
