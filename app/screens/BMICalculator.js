@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		paddingHorizontal: 16,
 		paddingVertical: 8,
-		backgroundColor: "#ed494940",
+		backgroundColor: "#ed4949",
 		shadowColor: "rgba(0, 0, 0, 0.25)",
 		shadowOffset: { width: 0, height: 4 },
 		shadowOpacity: 1,
@@ -109,18 +109,18 @@ const styles = StyleSheet.create({
 		backgroundColor: "transparent",
 	},
 	maleButton: {
-		color: "#ED4949",
+		color: "#fff",
 		fontSize: 14,
 	},
 	femaleButton: {
-		color: "#ED4949",
+		color: "#fff",
 		fontSize: 14,
 	},
 	activeTabButton: {
-		backgroundColor: "#ED4949",
+		backgroundColor: "#fff",
 	},
 	active: {
-		color: "#fff",
+		color: "#ed4949",
 	},
 });
 

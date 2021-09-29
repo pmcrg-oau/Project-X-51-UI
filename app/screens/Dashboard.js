@@ -73,7 +73,7 @@ const Dashboard = () => {
 
 	const hideDatePicker = () => {
 		setShow(false);
-	};
+	}
 
 	return (
 		<View style={styles.container}>
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#fff",
 		height: "100%",
-		// fontFamily: "Red Rose",
+		fontFamily: "Red Rose",
 	},
 	scrollView: {
 		flexGrow: 1,
@@ -231,6 +231,7 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		opacity: 0.6,
 		marginTop: 10,
+		fontFamily: "Red Rose",
 	},
 	bold: {
 		fontWeight: "bold",
@@ -240,6 +241,7 @@ const styles = StyleSheet.create({
 		width: "85%",
 		textAlign: "left",
 		fontSize: 24,
+		fontFamily: "Red Rose",
 		color: "#ed4949",
 		fontWeight: "bold",
 		marginBottom: 15,
@@ -262,17 +264,20 @@ const styles = StyleSheet.create({
 		color: "rgba(196, 196, 196, 0.53)",
 		fontSize: 12,
 		marginBottom: 5,
+		fontFamily: "Red Rose",
 	},
 	intakeResult: {
 		fontWeight: "bold",
 		color: "#fff",
 		fontSize: 36,
 		marginBottom: 15,
+		fontFamily: "Red Rose",
 	},
 	nutritionBreakText: {
 		color: "#c4c4c4",
 		fontWeight: "bold",
 		fontSize: 12,
+		fontFamily: "Red Rose",
 	},
 	topDietsContainer: {
 		width: "85%",
@@ -289,16 +294,18 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		color: "#ed4949",
 		fontWeight: "bold",
+		fontFamily: "Red Rose",
 	},
 	seeAll: {
 		fontSize: 12,
 		fontWeight: "bold",
 		color: "#c4c4c4",
+		fontFamily: "Red Rose",
 	},
 	topDietsImage: {
-		width: 93,
-		height: 57,
-		resizeMode: "cover",
+		width: 70,
+		height: 70,
+		resizeMode: "contain",
 		marginRight: 5,
 	},
 });

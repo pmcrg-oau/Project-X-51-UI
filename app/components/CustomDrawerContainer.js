@@ -11,24 +11,31 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 		<View style={{ flex: 1 }}>
 			<View style={styles.container}>
 				<DrawerContentScrollView {...props}>
-					<TouchableOpacity style={styles.backButton} onPress={() => props.navigation.closeDrawer()}>
-						<EvilIcons
+					<TouchableOpacity
+						style={styles.backButton}
+						onPress={() => props.navigation.closeDrawer()}
+					>
+						<AntDesign
 							style={styles.iconStyle}
-							name={"chevron-left"}
+							name={"left"}
 							size={35}
 							color={"#ED4949"}
 						/>
 					</TouchableOpacity>
 
 					<View style={styles.logoContainer}>
-						<Image
-							style={styles.image}
-							fadeDuration={0}
-							resizeMode={"contain"}
-							source={{
-								uri: "https://images.unsplash.com/photo-1522844990619-4951c40f7eda?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+						<TouchableOpacity
+							onPress={() => {
+								props.navigation.navigate("Profile");
 							}}
-						/>
+						>
+							<Image
+								style={styles.image}
+								fadeDuration={0}
+								resizeMode={"cover"}
+								source={require("../assets/images/profile.png")}
+							/>
+						</TouchableOpacity>
 					</View>
 
 					<TouchableOpacity
@@ -69,7 +76,7 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 					>
 						<AntDesign
 							style={styles.iconStyle}
-							name={"contacts"}
+							name={"barschart"}
 							size={25}
 							color={
 								routeNames[routeIndex] === "BMIScreen" ? "#ED4949" : "black"
@@ -90,24 +97,24 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 					<TouchableOpacity
 						style={[
 							styles.navContainer,
-							routeNames[routeIndex] === "Vibes" && styles.navContainerActive,
+							routeNames[routeIndex] === "Profile" && styles.navContainerActive,
 						]}
 						onPress={() => {
-							props.navigation.navigate("Vibes");
+							props.navigation.navigate("Profile");
 						}}
 					>
-						<EvilIcons
-							name={"question"}
+						<AntDesign
+							name={"profile"}
 							size={30}
-							color={routeNames[routeIndex] === "Vibes" ? "#ED4949" : "black"}
+							color={routeNames[routeIndex] === "Profile" ? "#ED4949" : "black"}
 						/>
 						<Text
 							style={[
 								styles.drawerText,
-								routeNames[routeIndex] === "Vibes" && styles.drawerTextActive,
+								routeNames[routeIndex] === "Profile" && styles.drawerTextActive,
 							]}
 						>
-							Vibes
+							Profile
 						</Text>
 					</TouchableOpacity>
 				</DrawerContentScrollView>
@@ -130,8 +137,8 @@ const styles = StyleSheet.create({
 	},
 	backButton: {
 		marginVertical: 8,
-		width: '100%',
-		alignItems: 'flex-end',
+		width: "100%",
+		alignItems: "flex-end",
 	},
 	container: {
 		alignItems: "center",
@@ -139,17 +146,18 @@ const styles = StyleSheet.create({
 		height: "90%",
 	},
 	logoContainer: {
+		backgroundColor: "#fff",
 		width: "100%",
-		height: 50,
+		height: "auto",
 		alignItems: "center",
 		justifyContent: "center",
 		marginBottom: 25,
-		padding: 5,
 	},
 	image: {
-		resizeMode: "contain",
-		width: "80%",
-		height: "100%",
+		resizeMode: "cover",
+		width: 145,
+		height: 145,
+		borderRadius: 145 / 2,
 	},
 	navContainer: {
 		flexDirection: "row",
