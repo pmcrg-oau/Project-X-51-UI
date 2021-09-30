@@ -43,12 +43,13 @@ const styles = StyleSheet.create({
 	whiteSplash: {
 		width: "100%",
 		height: "auto",
-		marginTop: -10,
+		marginTop: -1,
 		marginBottom: 10,
 	},
 	whiteSplashImage: {
 		width: "100%",
-		height: 402,
+		height: 430,
+		resizeMode: 'stretch'
 	},
 	bottomContent: {
 		flex: 1,

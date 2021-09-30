@@ -46,19 +46,18 @@ const CustomPieChart = () => {
 					color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
 				}}
 				style={{
-                    paddingLeft: 16,
+					paddingLeft: 16,
 					borderRadius: 16,
 					borderRadius: 16,
 					borderWidth: 2,
 					borderRadius: 20,
 					borderColor: "#ed4949",
-                    height: 280,
-                    alignItems: 'center',
-                    justifyContent: 'center',
+					height: 280,
+					alignItems: "center",
+					justifyContent: "center",
 				}}
 				accessor="percentage"
 				backgroundColor="transparent"
-				absolute //for the absolute number remove if you want percentage
 			/>
 		</>
 	);
