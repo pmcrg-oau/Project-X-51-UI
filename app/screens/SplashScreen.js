@@ -42,19 +42,19 @@ const styles = StyleSheet.create({
 	},
 	whiteSplash: {
 		width: "100%",
-		height: "50%",
-		marginBottom: 20,
+		height: "auto",
+		marginTop: -10,
+		marginBottom: 10,
 	},
 	whiteSplashImage: {
 		width: "100%",
-		height: "100%",
+		height: 402,
 	},
 	bottomContent: {
-		height: "50%",
+		flex: 1,
 		alignItems: "center",
 		justifyContent: "space-between",
-		paddingTop: 90,
-		paddingBottom: 100,
+		paddingVertical: 60
 	},
 	bottomContentText: {
 		fontSize: 18,

@@ -68,7 +68,7 @@ export default function App() {
 		}
 	}, [fontsLoaded]);
 
-	if (showSplashScreen) {
+	if (!showSplashScreen) {
 		return <SplashScreen />;
 	} else {
 		return (
