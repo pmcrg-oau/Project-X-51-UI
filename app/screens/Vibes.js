@@ -14,7 +14,11 @@ import {
 const Vibes = () => {
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
+			<ScrollView 
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
 				<Text>This is the vibes page</Text>
 			</ScrollView>
 		</View>
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
 		width: "85%",
 		textAlign: "left",
 		fontSize: 24,
+		fontFamily: 'Red Rose',
 		color: "#ed4949",
 		fontWeight: "bold",
 		marginBottom: 15,
@@ -88,18 +93,21 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		color: "rgba(196, 196, 196, 0.53)",
 		fontSize: 12,
+		fontFamily: 'Red Rose',
 		marginBottom: 5,
 	},
 	intakeResult: {
 		fontWeight: "bold",
 		color: "#fff",
 		fontSize: 36,
+		fontFamily: 'Red Rose',
 		marginBottom: 15,
 	},
 	nutritionBreakText: {
 		color: "#c4c4c4",
 		fontWeight: "bold",
 		fontSize: 12,
+		fontFamily: 'Red Rose',
 	},
 	topDietsContainer: {
 		width: "85%",
@@ -114,11 +122,13 @@ const styles = StyleSheet.create({
 	},
 	topDietsTopTitle: {
 		fontSize: 24,
+		fontFamily: 'Red Rose',
 		color: "#ed4949",
 		fontWeight: "bold",
 	},
 	seeAll: {
 		fontSize: 12,
+		fontFamily: 'Red Rose',
 		fontWeight: "bold",
 		color: "#c4c4c4",
 	},

@@ -7,7 +7,11 @@ import Button from "../../components/Button";
 const BMIResult = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
+			<ScrollView 
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
 				<Banner />
 
 				<View style={styles.bmiResultContainer}>
@@ -64,6 +68,7 @@ const styles = StyleSheet.create({
 	},
 	titleText: {
 		fontSize: 48,
+		fontFamily: 'Red Rose',
 		color: "#ed4949",
 		fontWeight: "bold",
 		marginBottom: 20,
@@ -80,12 +85,14 @@ const styles = StyleSheet.create({
 	},
 	introductoryText: {
 		fontSize: 18,
+		fontFamily: 'Red Rose',
 		color: "#fff",
 		fontWeight: "bold",
 		marginBottom: 10,
 	},
 	resultText: {
 		fontSize: 48,
+		fontFamily: 'Red Rose',
 		fontWeight: "bold",
 		color: "#ed4949",
 	},
@@ -93,6 +100,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		maxWidth: 300,
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 		fontWeight: "bold",
 		color: "#c4c9c9",
 	},
@@ -116,6 +124,7 @@ const styles = StyleSheet.create({
 	},
 	buttonTextStyle: {
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 		color: "#fff",
 	},
 });

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-
+import {
+	StyleSheet,
+	View,
+	Text,
+	Image,
+	TouchableOpacity,
+	ScrollView,
+} from "react-native";
 
 import Banner from "../components/Banner";
 import Login from "../components/Login";
@@ -11,8 +17,12 @@ const LoginSignup = ({ setLoggedIn }) => {
 
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
-				<Banner signupBanner={true}/>
+			<ScrollView
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
+				<Banner signupBanner={true} />
 				<View style={styles.loginSignupContainer}>
 					<View style={styles.tab}>
 						<TouchableOpacity
@@ -50,9 +60,9 @@ const LoginSignup = ({ setLoggedIn }) => {
 					</View>
 
 					{activeTab === "signup" ? (
-						<Signup setActiveTab={setActiveTab} setLoggedIn={setLoggedIn}/>
+						<Signup setActiveTab={setActiveTab} setLoggedIn={setLoggedIn} />
 					) : (
-						<Login setActiveTab={setActiveTab} setLoggedIn={setLoggedIn}/>
+						<Login setActiveTab={setActiveTab} setLoggedIn={setLoggedIn} />
 					)}
 				</View>
 			</ScrollView>
@@ -116,10 +126,12 @@ const styles = StyleSheet.create({
 	loginButton: {
 		color: "#fff",
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 	},
 	signupButton: {
 		color: "#fff",
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 	},
 	activeTabButton: {
 		backgroundColor: "#fff",

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, FlatList, StyleSheet } from "react-native";
 
-import CustomButton from '../components/Button';
+import CustomButton from "../components/Button";
 
 const TopDietsSection = ({ data }) => {
 	return (
@@ -11,6 +11,8 @@ const TopDietsSection = ({ data }) => {
 				<CustomButton text={"See All"} textStyle={styles.seeAll} />
 			</View>
 			<FlatList
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
 				data={data}
 				renderItem={({ item }) => (
 					<View style={styles.topDiet}>
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
 	},
 	topDiet: {
 		width: 90,
-		height: 'auto',
+		height: "auto",
 		marginRight: 16,
 	},
 	topDietImage: {
@@ -63,10 +65,11 @@ const styles = StyleSheet.create({
 	},
 	topDietText: {
 		fontSize: 11,
-		fontWeight: 'bold',
-		color: 'rgba(0, 0, 0, 0.5)',
-		textAlign: 'center'
-	}
+		fontFamily: 'Red Rose',
+		fontWeight: "bold",
+		color: "rgba(0, 0, 0, 0.5)",
+		textAlign: "center",
+	},
 });
 
 export default TopDietsSection;

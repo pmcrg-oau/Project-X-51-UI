@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: "#CAC9C9",
 		borderBottomWidth: 1,
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 		color: "#cac9c9",
 		marginVertical: 16,
 	},
@@ -121,6 +122,7 @@ const styles = StyleSheet.create({
 	},
 	buttonTextStyle: {
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 		color: "#fff",
 	},
 });

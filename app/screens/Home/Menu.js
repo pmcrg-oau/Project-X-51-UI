@@ -21,9 +21,9 @@ const Menu = ({ route, navigation }) => {
 		setSelectedDinner,
 	} = useContext(TodayMealsContext);
 
-    // select meals menu based on menu type
+	// select meals menu based on menu type
 	const menuData = todayMealsData.filter((data) => data.type === menuType)[0];
-    // filter the menu meals with search Text
+	// filter the menu meals with search Text
 	const filteredMenuDataMeals = menuData.meals.filter((data) =>
 		data.name.toLowerCase().includes(searchText.toLowerCase())
 	);
@@ -57,6 +57,8 @@ const Menu = ({ route, navigation }) => {
 			<View style={styles.menuList}>
 				<FlatList
 					data={filteredMenuDataMeals}
+					showsVerticalScrollIndicator={false}
+					showsHorizontalScrollIndicator={false}
 					renderItem={({ item }) => (
 						<TouchableOpacity
 							style={styles.buttonContainerStyle}
@@ -109,18 +111,24 @@ const styles = StyleSheet.create({
 	text: {
 		color: "#ed4949",
 		fontWeight: "bold",
+		width: "85%",
+		textAlign: "left",
+        fontFamily: 'Red Rose',
 	},
 	topText: {
 		fontSize: 30,
+        fontFamily: 'Red Rose',
 	},
 	sloganText: {
 		fontSize: 11,
+        fontFamily: 'Red Rose',
 		opacity: 0.75,
 		marginVertical: 16,
 	},
 	notInterestedText: {
 		width: "85%",
 		fontSize: 14,
+        fontFamily: 'Red Rose',
 		opacity: 0.89,
 		marginVertical: 8,
 		textAlign: "right",
@@ -157,6 +165,7 @@ const styles = StyleSheet.create({
 	},
 	textStyle: {
 		fontSize: 12,
+        fontFamily: 'Red Rose',
 		color: "#fff",
 		fontWeight: "bold",
 		marginVertical: 8,

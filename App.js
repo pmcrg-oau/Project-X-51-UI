@@ -57,6 +57,7 @@ export default function App() {
 
 	let [fontsLoaded] = useFonts({
 		"Red Rose": require("./app/assets/fonts/RedRose-VariableFont_wght.ttf"),
+		"Rockwell": require("./app/assets/fonts/rockb.ttf"),
 	});
 
 	useEffect(() => {
@@ -186,6 +187,7 @@ const styles = StyleSheet.create({
 	headerTextStyle: {
 		color: "#ed4949",
 		fontSize: 18,
+		fontFamily: 'Red Rose',
 		paddingRight: 10,
 	},
 });

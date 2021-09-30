@@ -9,7 +9,11 @@ const BMICalculator = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
+			<ScrollView 
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
 				<Banner />
 
 				<View style={styles.bmiContainer}>
@@ -111,10 +115,12 @@ const styles = StyleSheet.create({
 	maleButton: {
 		color: "#fff",
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 	},
 	femaleButton: {
 		color: "#fff",
 		fontSize: 14,
+		fontFamily: 'Red Rose',
 	},
 	activeTabButton: {
 		backgroundColor: "#fff",

@@ -76,7 +76,11 @@ const Dashboard = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
+			<ScrollView 
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
 				<View style={styles.bannerContainer}>
 					<Text style={[styles.bannerText, styles.bold]}>Hi Sharbie!</Text>
 					<Text style={styles.bannerText}>
@@ -188,6 +192,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		textAlign: "right",
 		fontSize: 36,
+		fontFamily: 'Red Rose',
 		color: "#fff",
 		fontWeight: "bold",
 	},

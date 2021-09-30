@@ -10,7 +10,7 @@ const GoalButton = ({
 	textStyle,
 }) => {
 	return (
-		<TouchableOpacity onPress={onPress}>
+		<TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
 			<View style={buttonStyle}>
 				<Image
 					style={imageStyle}
@@ -23,6 +23,9 @@ const GoalButton = ({
 };
 
 const styles = StyleSheet.create({
+	buttonContainer: {
+		marginRight: 16
+	},
 	buttonStyle: {
 		width: 88,
 		height: 88,
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
 		// shadowRadius: 15.19,
 		// elevation: 23,
 		borderRadius: 10,
-        justifyContent: 'center'
+        justifyContent: 'center',
 	},
 	imageStyle: {
 		width: 80,
@@ -45,6 +48,7 @@ const styles = StyleSheet.create({
 	},
 	textStyle: {
 		fontSize: 12,
+		fontFamily: 'Red Rose',
 		color: "#ed4949",
 		fontWeight: "bold",
 		marginTop: 5,

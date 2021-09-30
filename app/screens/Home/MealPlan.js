@@ -17,7 +17,11 @@ const MealPlan = ({ navigation }) => {
 				style={styles.background}
 				imageStyle={styles.backgroundImage}
 			>
-				<ScrollView contentContainerStyle={styles.scrollView}>
+				<ScrollView
+					contentContainerStyle={styles.scrollView}
+					showsVerticalScrollIndicator={false}
+					showsHorizontalScrollIndicator={false}
+				>
 					<Text style={[styles.text, styles.dashboardText]}>Dashboard</Text>
 					<Text style={[styles.text, styles.mealPlanText]}>Meal Plan</Text>
 
@@ -63,19 +67,23 @@ const styles = StyleSheet.create({
 	},
 	dashboardText: {
 		fontSize: 30,
+        fontFamily: 'Red Rose',
 		marginVertical: 8,
 	},
 	mealPlanText: {
 		fontSize: 18,
+        fontFamily: 'Red Rose',
 		opacity: 0.6,
 		marginBottom: 20,
 	},
 	welcomeBackText: {
 		fontSize: 14,
+        fontFamily: 'Red Rose',
 		marginBottom: 8,
 	},
 	usernameText: {
 		fontSize: 24,
+        fontFamily: 'Red Rose',
 	},
 });
 

@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
 	headerTextStyle: {
 		color: "#ed4949",
 		fontSize: 18,
+		fontFamily: 'Red Rose',
 		paddingRight: 10,
 	},
 });

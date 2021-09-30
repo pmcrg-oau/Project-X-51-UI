@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
 	goalButtonsContainer: {
 		width: "85%",
 		flexDirection: "row",
-		justifyContent: "space-between",
 		marginBottom: 30,
 	},
 });

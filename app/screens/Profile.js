@@ -13,7 +13,6 @@ import GestureRecognizer from "react-native-swipe-gestures";
 import BezierLineChart from "../components/BeizerLineChart";
 import profileData from "../dummyData/profileData";
 
-
 const Profile = () => {
 	const [paramIndex, setParamIndex] = useState(0);
 	const [titleText, setTitleText] = useState("Your Current Weight");
@@ -54,7 +53,11 @@ const Profile = () => {
 
 	return (
 		<View style={styles.container}>
-			<ScrollView contentContainerStyle={styles.scrollView}>
+			<ScrollView
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+			>
 				<View style={bannerStyles.container}>
 					<View style={bannerStyles.logoContainer}>
 						<Image
@@ -83,6 +86,8 @@ const Profile = () => {
 					<View style={bannerStyles.barIndicator}>
 						<FlatList
 							data={profileData}
+							showsVerticalScrollIndicator={false}
+							showsHorizontalScrollIndicator={false}
 							renderItem={(item) => (
 								<TouchableOpacity onPress={() => setParamIndex(item.index)}>
 									<View
@@ -136,6 +141,7 @@ const bannerStyles = StyleSheet.create({
 	text: {
 		color: "#fff",
 		fontSize: 12,
+		fontFamily: 'Red Rose',
 		fontWeight: "bold",
 	},
 	image: {
@@ -152,7 +158,7 @@ const bannerStyles = StyleSheet.create({
 		alignItems: "center",
 		borderRadius: 20,
 		paddingVertical: 12,
-        marginVertical: 25
+		marginVertical: 25,
 	},
 	titleText: {
 		color: "rgba(237, 73, 73, 0.75)",
@@ -161,6 +167,7 @@ const bannerStyles = StyleSheet.create({
 	currentDataText: {
 		fontWeight: "bold",
 		fontSize: 48,
+		fontFamily: 'Red Rose',
 		color: "#ed4949",
 	},
 	barIndicator: {

@@ -13,7 +13,8 @@ import CustomButton from "../components/Button";
 import TodayMealsContext from "../contexts/TodayMealsContext";
 
 const TodayMeals = ({ navigation }) => {
-	const { todayMealsData, selectedBreakfast, selectedLunch, selectedDinner } = useContext(TodayMealsContext);
+	const { todayMealsData, selectedBreakfast, selectedLunch, selectedDinner } =
+		useContext(TodayMealsContext);
 
 	return (
 		<View style={styles.todayMealsContainer}>
@@ -23,13 +24,17 @@ const TodayMeals = ({ navigation }) => {
 			</View>
 			<FlatList
 				data={todayMealsData}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
 				renderItem={({ item }) => (
-					<TouchableOpacity onPress={() => navigation.navigate('Menu', {menuType: item.type})}>
+					<TouchableOpacity
+						onPress={() => navigation.navigate("Menu", { menuType: item.type })}
+					>
 						<View style={styles.buttonStyle}>
 							<View style={styles.imageContainer}>
 								<Image
 									style={styles.imageStyle}
-                                    // Determine to show latest meal imgSrc
+									// Determine to show latest meal imgSrc
 									source={
 										item.type === "Breakfast"
 											? selectedBreakfast.imgSrc
@@ -39,7 +44,7 @@ const TodayMeals = ({ navigation }) => {
 									}
 								/>
 								<Text style={styles.imageText}>
-                                    {/* Determine to show latest meal text and calorie */}
+									{/* Determine to show latest meal text and calorie */}
 									{item.type === "Breakfast"
 										? selectedBreakfast.name
 										: item.type === "Lunch"
@@ -121,6 +126,7 @@ const styles = StyleSheet.create({
 	},
 	imageText: {
 		fontSize: 10,
+        fontFamily: 'Red Rose',
 		color: "#fff",
 		fontWeight: "bold",
 		marginVertical: 8,
@@ -129,6 +135,7 @@ const styles = StyleSheet.create({
 	},
 	textStyle: {
 		fontSize: 12,
+        fontFamily: 'Red Rose',
 		color: "#ed4949",
 		fontWeight: "bold",
 		marginVertical: 5,
