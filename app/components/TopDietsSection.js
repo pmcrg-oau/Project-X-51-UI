@@ -13,7 +13,10 @@ const TopDietsSection = ({ data }) => {
 			<FlatList
 				data={data}
 				renderItem={({ item }) => (
-					<Image style={styles.topDietsImage} source={item.imageSrc} />
+					<View style={styles.topDiet}>
+						<Image style={styles.topDietImage} source={item.imageSrc} />
+						<Text style={styles.topDietText}>{item.title}</Text>
+					</View>
 				)}
 				keyExtractor={(item) => item.id}
 				horizontal={true}
@@ -47,12 +50,23 @@ const styles = StyleSheet.create({
 		color: "#c4c4c4",
 		fontFamily: "Red Rose",
 	},
-	topDietsImage: {
+	topDiet: {
+		width: 70,
+		height: 'auto',
+		marginRight: 5,
+	},
+	topDietImage: {
 		width: 70,
 		height: 70,
 		resizeMode: "contain",
 		marginRight: 5,
 	},
+	topDietText: {
+		fontSize: 11,
+		fontWeight: 'bold',
+		color: 'rgba(0, 0, 0, 0.5)',
+		textAlign: 'center'
+	}
 });
 
 export default TopDietsSection;
