@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, Pressable, Text } from "react-native";
 import { useFonts } from "expo-font";
 // import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
@@ -57,7 +57,7 @@ export default function App() {
 
 	let [fontsLoaded] = useFonts({
 		"Red Rose": require("./app/assets/fonts/RedRose-VariableFont_wght.ttf"),
-		"Rockwell": require("./app/assets/fonts/rockb.ttf"),
+		Rockwell: require("./app/assets/fonts/rockb.ttf"),
 	});
 
 	useEffect(() => {
@@ -75,9 +75,7 @@ export default function App() {
 			<NavigationContainer>
 				{loggedIn ? (
 					<TodayMealsContextProvider>
-						<Stack.Navigator
-							headerMode="screen"
-						>
+						<Stack.Navigator headerMode="screen">
 							<Stack.Screen
 								name="Drawer"
 								children={() => <DrawerScreen setLoggedIn={setLoggedIn} />}
@@ -91,14 +89,14 @@ export default function App() {
 								options={({ navigation }) => ({
 									title: null,
 									headerLeft: () => (
-										<TouchableOpacity onPress={() => navigation.goBack()}>
+										<Pressable onPress={() => navigation.goBack()}>
 											<AntDesign
 												style={styles.iconStyle}
 												name={"arrowleft"}
 												size={35}
 												color={"#ED4949"}
 											/>
-										</TouchableOpacity>
+										</Pressable>
 									),
 									headerRight: () => (
 										<Text style={styles.headerTextStyle}>Meal Plan</Text>
@@ -111,19 +109,19 @@ export default function App() {
 								options={({ navigation }) => ({
 									title: null,
 									headerLeft: () => (
-										<TouchableOpacity onPress={() => navigation.goBack()}>
+										<Pressable onPress={() => navigation.goBack()}>
 											<AntDesign
 												style={styles.iconStyle}
 												name={"arrowleft"}
 												size={35}
 												color={"#ED4949"}
 											/>
-										</TouchableOpacity>
+										</Pressable>
 									),
 									headerRight: () => (
 										<Text style={styles.headerTextStyle}>Menu</Text>
 									),
-									...verticalAnimation
+									...verticalAnimation,
 								})}
 							/>
 							<Stack.Screen
@@ -132,19 +130,19 @@ export default function App() {
 								options={({ navigation }) => ({
 									title: null,
 									headerLeft: () => (
-										<TouchableOpacity onPress={() => navigation.goBack()}>
+										<Pressable onPress={() => navigation.goBack()}>
 											<AntDesign
 												style={styles.iconStyle}
 												name={"arrowleft"}
 												size={35}
 												color={"#ED4949"}
 											/>
-										</TouchableOpacity>
+										</Pressable>
 									),
 									headerRight: () => (
 										<Text style={styles.headerTextStyle}>Workout</Text>
 									),
-									...horizontalAnimation
+									...horizontalAnimation,
 								})}
 							/>
 							<Stack.Screen
@@ -153,19 +151,19 @@ export default function App() {
 								options={({ navigation }) => ({
 									title: null,
 									headerLeft: () => (
-										<TouchableOpacity onPress={() => navigation.goBack()}>
+										<Pressable onPress={() => navigation.goBack()}>
 											<AntDesign
 												style={styles.iconStyle}
 												name={"arrowleft"}
 												size={35}
 												color={"#ED4949"}
 											/>
-										</TouchableOpacity>
+										</Pressable>
 									),
 									headerRight: () => (
 										<Text style={styles.headerTextStyle}>Water</Text>
 									),
-									...verticalAnimation
+									...verticalAnimation,
 								})}
 							/>
 						</Stack.Navigator>
@@ -187,7 +185,7 @@ const styles = StyleSheet.create({
 	headerTextStyle: {
 		color: "#ed4949",
 		fontSize: 18,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		paddingRight: 10,
 	},
 });

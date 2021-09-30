@@ -5,7 +5,7 @@ import {
 	Image,
 	FlatList,
 	StyleSheet,
-	TouchableOpacity,
+	Pressable,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -27,7 +27,7 @@ const TodayMeals = ({ navigation }) => {
 				showsVerticalScrollIndicator={false}
 				showsHorizontalScrollIndicator={false}
 				renderItem={({ item }) => (
-					<TouchableOpacity
+					<Pressable
 						onPress={() => navigation.navigate("Menu", { menuType: item.type })}
 					>
 						<View style={styles.buttonStyle}>
@@ -69,7 +69,7 @@ const TodayMeals = ({ navigation }) => {
 								/>
 							</Text>
 						</View>
-					</TouchableOpacity>
+					</Pressable>
 				)}
 				keyExtractor={(item) => item.type}
 				horizontal={true}
@@ -94,18 +94,16 @@ const styles = StyleSheet.create({
 	todayMealsTopTitle: {
 		fontSize: 24,
 		color: "#ed4949",
-		fontWeight: "bold",
 		fontFamily: "Red Rose",
 	},
 	trackMeal: {
 		fontSize: 12,
-		fontWeight: "bold",
 		color: "#c4c4c4",
 		fontFamily: "Red Rose",
 	},
 	buttonStyle: {
-		width: 133,
-		minHeight: 112,
+		width: 173,
+		minHeight: 122,
 		borderColor: "#ed4949",
 		borderWidth: 2,
 		borderRadius: 10,
@@ -115,8 +113,8 @@ const styles = StyleSheet.create({
 	},
 	imageContainer: {
 		width: "100%",
-		backgroundColor: "rgba(237, 73, 73, 0.5)",
-		height: 120,
+		backgroundColor: "#ed4949",
+		height: 150,
 		paddingVertical: 4,
 	},
 	imageStyle: {
@@ -126,18 +124,16 @@ const styles = StyleSheet.create({
 	},
 	imageText: {
 		fontSize: 10,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#fff",
-		fontWeight: "bold",
 		marginVertical: 8,
 		width: "100%",
 		textAlign: "center",
 	},
 	textStyle: {
 		fontSize: 12,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#ed4949",
-		fontWeight: "bold",
 		marginVertical: 5,
 		width: "100%",
 		textAlign: "center",

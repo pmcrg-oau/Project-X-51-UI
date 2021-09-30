@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+	ScrollView,
+	StyleSheet,
+	View,
+	Text,
+	Image,
+	Pressable,
+} from "react-native";
 
 import Banner from "../../components/Banner";
 import BMICalculatorForm from "../../components/BMICalculatorForm";
@@ -9,7 +16,7 @@ const BMICalculator = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<ScrollView 
+			<ScrollView
 				contentContainerStyle={styles.scrollView}
 				showsVerticalScrollIndicator={false}
 				showsHorizontalScrollIndicator={false}
@@ -18,7 +25,7 @@ const BMICalculator = ({ navigation }) => {
 
 				<View style={styles.bmiContainer}>
 					<View style={styles.tab}>
-						<TouchableOpacity
+						<Pressable
 							style={[
 								styles.tabButtons,
 								gender === "female" ? styles.activeTabButton : {},
@@ -33,8 +40,8 @@ const BMICalculator = ({ navigation }) => {
 							>
 								Female
 							</Text>
-						</TouchableOpacity>
-						<TouchableOpacity
+						</Pressable>
+						<Pressable
 							style={[
 								styles.tabButtons,
 								gender === "male" ? styles.activeTabButton : {},
@@ -49,10 +56,10 @@ const BMICalculator = ({ navigation }) => {
 							>
 								Male
 							</Text>
-						</TouchableOpacity>
+						</Pressable>
 					</View>
 
-					<BMICalculatorForm gender={gender} navigation={navigation}/>
+					<BMICalculatorForm gender={gender} navigation={navigation} />
 				</View>
 			</ScrollView>
 		</View>
@@ -115,12 +122,12 @@ const styles = StyleSheet.create({
 	maleButton: {
 		color: "#fff",
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	femaleButton: {
 		color: "#fff",
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	activeTabButton: {
 		backgroundColor: "#fff",

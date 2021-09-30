@@ -42,7 +42,6 @@ const bannerStyles = StyleSheet.create({
 	text: {
 		color: "#fff",
 		fontSize: 48,
-		fontWeight: "bold",
 		fontFamily: "Rockwell",
 		textAlign: "center",
 		marginTop: 106,

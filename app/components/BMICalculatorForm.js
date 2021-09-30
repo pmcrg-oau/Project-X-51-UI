@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-	StyleSheet,
-	View,
-	Text,
-	TextInput,
-	TouchableOpacity,
-} from "react-native";
+import { StyleSheet, View, Text, TextInput, Pressable } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 import Button from "./Button";
@@ -78,7 +72,7 @@ const BMICalculatorForm = ({ gender, navigation }) => {
 
 			<Button
 				text={"Calculate your BMI"}
-				onPress={() => navigation.navigate('BMIResult')}
+				onPress={() => navigation.navigate("BMIResult")}
 				buttonStyle={styles.buttonStyle}
 				textStyle={styles.buttonTextStyle}
 			/>
@@ -101,7 +95,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: "#CAC9C9",
 		borderBottomWidth: 1,
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#cac9c9",
 		marginVertical: 16,
 	},
@@ -122,7 +116,7 @@ const styles = StyleSheet.create({
 	},
 	buttonTextStyle: {
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#fff",
 	},
 });

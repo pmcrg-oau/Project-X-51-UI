@@ -63,14 +63,12 @@ const styles = StyleSheet.create({
 	},
 	previous: {
 		fontSize: 13,
-		fontFamily: 'Red Rose',
-		fontWeight: "bold",
+		fontFamily: "Rockwell",
 		color: "rgba(237, 73, 73, 0.75)",
 	},
 	mainHeader: {
 		fontSize: 36,
-		fontFamily: 'Red Rose',
-		fontWeight: "bold",
+		fontFamily: "Rockwell",
 		color: "#ed4949",
 	},
 });

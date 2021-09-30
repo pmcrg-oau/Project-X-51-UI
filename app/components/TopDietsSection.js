@@ -43,12 +43,10 @@ const styles = StyleSheet.create({
 	topDietsTopTitle: {
 		fontSize: 24,
 		color: "#ed4949",
-		fontWeight: "bold",
 		fontFamily: "Red Rose",
 	},
 	seeAll: {
 		fontSize: 12,
-		fontWeight: "bold",
 		color: "#c4c4c4",
 		fontFamily: "Red Rose",
 	},
@@ -65,8 +63,7 @@ const styles = StyleSheet.create({
 	},
 	topDietText: {
 		fontSize: 11,
-		fontFamily: 'Red Rose',
-		fontWeight: "bold",
+		fontFamily: "Red Rose",
 		color: "rgba(0, 0, 0, 0.5)",
 		textAlign: "center",
 	},

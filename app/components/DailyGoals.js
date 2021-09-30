@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontFamily: "Red Rose",
 		color: "#ed4949",
-		fontWeight: "bold",
 		marginBottom: 15,
 	},
 	goalButtonsContainer: {

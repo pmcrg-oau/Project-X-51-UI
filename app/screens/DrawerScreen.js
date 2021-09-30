@@ -1,14 +1,12 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text  } from 'react-native';
+import { Pressable, StyleSheet, Text } from "react-native";
 import { EvilIcons, AntDesign } from "@expo/vector-icons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
 
 import CustomDrawerContainer from "../components/CustomDrawerContainer";
 import Dashboard from "./Home/Dashboard";
 import BMIScreen from "./BMI/BMIScreen";
 import Profile from "./Profile";
-
 
 const DrawerScreen = ({ setLoggedIn }) => {
 	const Drawer = createDrawerNavigator();
@@ -27,14 +25,14 @@ const DrawerScreen = ({ setLoggedIn }) => {
 					drawerLabel: () => null,
 					title: null,
 					headerLeft: () => (
-						<TouchableOpacity onPress={() => navigation.openDrawer()}>
+						<Pressable onPress={() => navigation.openDrawer()}>
 							<EvilIcons
 								style={styles.iconStyle}
 								name={"navicon"}
 								size={35}
 								color={"#ED4949"}
 							/>
-						</TouchableOpacity>
+						</Pressable>
 					),
 				})}
 			/>
@@ -45,14 +43,14 @@ const DrawerScreen = ({ setLoggedIn }) => {
 					drawerLabel: () => null,
 					title: null,
 					headerLeft: () => (
-						<TouchableOpacity onPress={() => navigation.openDrawer()}>
+						<Pressable onPress={() => navigation.openDrawer()}>
 							<EvilIcons
 								style={styles.iconStyle}
 								name={"navicon"}
 								size={35}
 								color={"#ED4949"}
 							/>
-						</TouchableOpacity>
+						</Pressable>
 					),
 				})}
 			/>
@@ -63,14 +61,14 @@ const DrawerScreen = ({ setLoggedIn }) => {
 					drawerLabel: () => null,
 					title: null,
 					headerLeft: () => (
-						<TouchableOpacity onPress={() => navigation.goBack()}>
+						<Pressable onPress={() => navigation.goBack()}>
 							<AntDesign
 								style={styles.iconStyle}
 								name={"arrowleft"}
 								size={35}
 								color={"#ED4949"}
 							/>
-						</TouchableOpacity>
+						</Pressable>
 					),
 					headerRight: () => (
 						<Text style={styles.headerTextStyle}>Profile</Text>
@@ -88,7 +86,7 @@ const styles = StyleSheet.create({
 	headerTextStyle: {
 		color: "#ed4949",
 		fontSize: 18,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		paddingRight: 10,
 	},
 });

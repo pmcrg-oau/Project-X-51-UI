@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-	View,
-	Text,
-	StyleSheet,
-	ScrollView,
-	TouchableOpacity,
-	TouchableHighlight,
-} from "react-native";
+import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -16,7 +9,7 @@ import DailyIntakeContainer from "../../components/DailyIntakeContainer";
 import DailyGoals from "../../components/DailyGoals";
 
 const CustomCancelButton = ({ onPress }) => (
-	<TouchableHighlight
+	<Pressable
 		style={{
 			width: "100%",
 			height: 50,
@@ -33,11 +26,11 @@ const CustomCancelButton = ({ onPress }) => (
 		<Text style={{ color: "#ed4949", fontSize: 18, fontWeight: "bold" }}>
 			Cancel
 		</Text>
-	</TouchableHighlight>
+	</Pressable>
 );
 
 const CustomConfirmButton = ({ onPress }) => (
-	<TouchableHighlight
+	<Pressable
 		style={{
 			width: "100%",
 			height: 50,
@@ -55,7 +48,7 @@ const CustomConfirmButton = ({ onPress }) => (
 		<Text style={{ color: "#ed4949", fontSize: 18, fontWeight: "bold" }}>
 			Confirm
 		</Text>
-	</TouchableHighlight>
+	</Pressable>
 );
 
 const Dashboard = ({ navigation }) => {
@@ -72,23 +65,23 @@ const Dashboard = ({ navigation }) => {
 
 	const hideDatePicker = () => {
 		setShow(false);
-	}
+	};
 
 	return (
 		<View style={styles.container}>
-			<ScrollView 
+			<ScrollView
 				contentContainerStyle={styles.scrollView}
 				showsVerticalScrollIndicator={false}
 				showsHorizontalScrollIndicator={false}
 			>
 				<View style={styles.bannerContainer}>
-					<Text style={[styles.bannerText, styles.bold]}>Hi Sharbie!</Text>
+					<Text style={[styles.bannerText]}>Hi Sharbie!</Text>
 					<Text style={styles.bannerText}>
 						Today is a beautiful day to lose weight!
 					</Text>
 
 					<View style={styles.calenderTextContainer}>
-						<TouchableOpacity
+						<Pressable
 							style={styles.calenderButton}
 							onPress={() => setShow(true)}
 						>
@@ -98,8 +91,17 @@ const Dashboard = ({ navigation }) => {
 								size={25}
 								color={"#fff"}
 							/>
-							<Text style={{ color: "#fff", marginLeft: 5 }}>Choose Date</Text>
-						</TouchableOpacity>
+							<Text
+								style={{
+									color: "#fff",
+									marginLeft: 5,
+									fontFamily: "Red Rose",
+									fontSize: 18,
+								}}
+							>
+								Choose Date
+							</Text>
+						</Pressable>
 
 						<View>
 							<Text style={[styles.calenderText]}>{dateArray[0]}</Text>
@@ -126,13 +128,13 @@ const Dashboard = ({ navigation }) => {
 
 				<View style={styles.dashboardContainer}>
 					{/* Daily Goals */}
-					<DailyGoals navigation={navigation}/>
-					
+					<DailyGoals navigation={navigation} />
+
 					{/* Daily Intake Container */}
 					<DailyIntakeContainer />
 
 					{/* Top Diets Section */}
-					<TopDietsSection data={DATA}/>
+					<TopDietsSection data={DATA} />
 				</View>
 			</ScrollView>
 		</View>
@@ -192,9 +194,8 @@ const styles = StyleSheet.create({
 		width: "100%",
 		textAlign: "right",
 		fontSize: 36,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#fff",
-		fontWeight: "bold",
 	},
 	textSmall: {
 		fontSize: 16,
@@ -212,7 +213,6 @@ const styles = StyleSheet.create({
 		fontSize: 24,
 		fontFamily: "Red Rose",
 		color: "#ed4949",
-		fontWeight: "bold",
 		marginBottom: 15,
 	},
 	goalButtonsContainer: {

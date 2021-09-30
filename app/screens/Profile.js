@@ -6,7 +6,7 @@ import {
 	ScrollView,
 	Image,
 	FlatList,
-	TouchableOpacity,
+	Pressable,
 } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
@@ -89,14 +89,14 @@ const Profile = () => {
 							showsVerticalScrollIndicator={false}
 							showsHorizontalScrollIndicator={false}
 							renderItem={(item) => (
-								<TouchableOpacity onPress={() => setParamIndex(item.index)}>
+								<Pressable onPress={() => setParamIndex(item.index)}>
 									<View
 										style={[
 											bannerStyles.bar,
 											item.index === paramIndex && bannerStyles.activeBar,
 										]}
 									/>
-								</TouchableOpacity>
+								</Pressable>
 							)}
 							keyExtractor={(item) => item.id.toString()}
 							horizontal={true}
@@ -141,8 +141,7 @@ const bannerStyles = StyleSheet.create({
 	text: {
 		color: "#fff",
 		fontSize: 12,
-		fontFamily: 'Red Rose',
-		fontWeight: "bold",
+		fontFamily: "Red Rose",
 	},
 	image: {
 		resizeMode: "cover",
@@ -152,9 +151,10 @@ const bannerStyles = StyleSheet.create({
 	},
 	paramPreview: {
 		backgroundColor: "#fff",
-		width: "100%",
+		width: "85%",
 		minHeight: 110,
-		maxWidth: 272,
+		minWidth: 272,
+		maxWidth: 400,
 		alignItems: "center",
 		borderRadius: 20,
 		paddingVertical: 12,
@@ -163,11 +163,11 @@ const bannerStyles = StyleSheet.create({
 	titleText: {
 		color: "rgba(237, 73, 73, 0.75)",
 		marginBottom: 16,
+		fontFamily: "Rockwell",
 	},
 	currentDataText: {
-		fontWeight: "bold",
 		fontSize: 48,
-		fontFamily: 'Red Rose',
+		fontFamily: "Rockwell",
 		color: "#ed4949",
 	},
 	barIndicator: {

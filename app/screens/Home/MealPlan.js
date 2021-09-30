@@ -6,6 +6,7 @@ import {
 	StyleSheet,
 	ScrollView,
 } from "react-native";
+import ProgressChartWeeks from "../../components/ProgressChartWeeks";
 
 import TodayMeals from "../../components/TodayMeals";
 
@@ -30,7 +31,11 @@ const MealPlan = ({ navigation }) => {
 					</Text>
 					<Text style={[styles.text, styles.usernameText]}>Webdot__</Text>
 
+                    {/* Today's meals */}
 					<TodayMeals navigation={navigation} />
+
+                    {/* Progress Last Weeks */}
+                    <ProgressChartWeeks />
 				</ScrollView>
 			</ImageBackground>
 		</View>
@@ -60,30 +65,29 @@ const styles = StyleSheet.create({
 		paddingBottom: 20,
 	},
 	text: {
-		fontWeight: "bold",
 		width: "85%",
 		textAlign: "left",
 		color: "#ed4949",
 	},
 	dashboardText: {
 		fontSize: 30,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		marginVertical: 8,
 	},
 	mealPlanText: {
 		fontSize: 18,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		opacity: 0.6,
 		marginBottom: 20,
 	},
 	welcomeBackText: {
 		fontSize: 14,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		marginBottom: 8,
 	},
 	usernameText: {
 		fontSize: 24,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 });
 

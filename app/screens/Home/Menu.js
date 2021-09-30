@@ -5,8 +5,9 @@ import {
 	Image,
 	StyleSheet,
 	FlatList,
-	TouchableOpacity,
+	Pressable,
 	Dimensions,
+	ScrollView,
 } from "react-native";
 
 import TodayMealsContext from "../../contexts/TodayMealsContext";
@@ -43,49 +44,58 @@ const Menu = ({ route, navigation }) => {
 	}
 
 	const windowWidth = Dimensions.get("window").width;
+	const windowHeight = Dimensions.get("window").height;
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.top}>
-				<Text style={[styles.text, styles.topText]}>
-					{menuType} Menu For You
+			<ScrollView
+				contentContainerStyle={styles.scrollView}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
+				nestedScrollEnabled={true}
+			>
+				<View style={styles.top}>
+					<Text style={[styles.text, styles.topText]}>
+						{menuType} Menu For You
+					</Text>
+				</View>
+				<Text style={[styles.text, styles.sloganText]}>
+					A reduced calorie {menuType} plan with maximized nutrition
 				</Text>
-			</View>
-			<Text style={[styles.text, styles.sloganText]}>
-				A reduced calorie {menuType} plan with maximized nutrition
-			</Text>
-			<View style={styles.menuList}>
-				<FlatList
-					data={filteredMenuDataMeals}
-					showsVerticalScrollIndicator={false}
-					showsHorizontalScrollIndicator={false}
-					renderItem={({ item }) => (
-						<TouchableOpacity
-							style={styles.buttonContainerStyle}
-							onPress={() => {
-								setSelectedMeal(item);
-								navigation.goBack();
-							}}
-						>
-							<View style={styles.buttonStyle}>
-								<View style={styles.imageContainer}>
-									<Image style={styles.imageStyle} source={item.imgSrc} />
+				<View style={[styles.menuList, { height: windowHeight - 300 }]}>
+					<FlatList
+						data={filteredMenuDataMeals}
+						extraData={filteredMenuDataMeals}
+						showsVerticalScrollIndicator={false}
+						showsHorizontalScrollIndicator={false}
+						nestedScrollEnabled={true}
+						renderItem={({ item }) => (
+							<Pressable
+								style={styles.buttonContainerStyle}
+								onPress={() => {
+									setSelectedMeal(item);
+									navigation.goBack();
+								}}
+							>
+								<View style={styles.buttonStyle}>
+									<View style={styles.imageContainer}>
+										<Image style={styles.imageStyle} source={item.imgSrc} />
+									</View>
+									<Text style={styles.textStyle}>
+										{item.name} ({item.calAmount})
+									</Text>
 								</View>
-								<Text style={styles.textStyle}>
-									{item.name} ({item.calAmount})
-								</Text>
-							</View>
-						</TouchableOpacity>
-					)}
-					keyExtractor={(item) => item.name}
-					initialNumToRender={8}
-					numColumns={Math.floor((windowWidth - 32) / 133)}
-					key={Math.floor((windowWidth - 32) / 133)}
-				/>
-			</View>
-			<Text style={[styles.text, styles.notInterestedText]}>
-				Not interested in any? Click here
-			</Text>
+							</Pressable>
+						)}
+						keyExtractor={(item) => item.name}
+						numColumns={Math.floor((windowWidth - 32) / 133)}
+						key={Math.floor((windowWidth - 32) / 133)}
+					/>
+				</View>
+				<Text style={[styles.text, styles.notInterestedText]}>
+					Not interested in any? Click here
+				</Text>
+			</ScrollView>
 		</View>
 	);
 };
@@ -110,32 +120,30 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		color: "#ed4949",
-		fontWeight: "bold",
-		width: "85%",
+		width: "90%",
 		textAlign: "left",
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	topText: {
 		fontSize: 30,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	sloganText: {
 		fontSize: 11,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		opacity: 0.75,
 		marginVertical: 16,
 	},
 	notInterestedText: {
-		width: "85%",
+		width: "90%",
 		fontSize: 14,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		opacity: 0.89,
 		marginVertical: 8,
 		textAlign: "right",
 	},
 	menuList: {
-		width: "85%",
-		height: 550,
+		width: "90%",
 	},
 	buttonContainerStyle: {
 		width: "50%",
@@ -143,8 +151,8 @@ const styles = StyleSheet.create({
 		marginBottom: 16,
 	},
 	buttonStyle: {
-		width: 133,
-		height: 142,
+		width: "90%",
+		height: 162,
 		borderColor: "#ed4949",
 		borderWidth: 2,
 		borderRadius: 10,
@@ -155,7 +163,7 @@ const styles = StyleSheet.create({
 	imageContainer: {
 		width: "100%",
 		backgroundColor: "rgba(237, 73, 73, 0.5)",
-		height: 80,
+		height: 100,
 		paddingVertical: 4,
 	},
 	imageStyle: {
@@ -165,9 +173,8 @@ const styles = StyleSheet.create({
 	},
 	textStyle: {
 		fontSize: 12,
-        fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#fff",
-		fontWeight: "bold",
 		marginVertical: 8,
 		width: "100%",
 		textAlign: "center",

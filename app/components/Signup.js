@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-	StyleSheet,
-	View,
-	Text,
-	TextInput,
-} from "react-native";
+import { StyleSheet, View, Text, TextInput } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 import Button from "./Button";
@@ -81,10 +76,13 @@ const Signup = ({ setActiveTab, setLoggedIn }) => {
 				buttonStyle={styles.buttonStyle}
 				textStyle={styles.buttonTextStyle}
 			/>
-            <Text style={styles.bottomText}>
-                Already have an account?
-                <Text style={styles.action} onPress={() => setActiveTab('login')}> Log In</Text>
-            </Text>
+			<Text style={styles.bottomText}>
+				Already have an account?
+				<Text style={styles.action} onPress={() => setActiveTab("login")}>
+					{" "}
+					Log In
+				</Text>
+			</Text>
 		</View>
 	);
 };
@@ -104,7 +102,7 @@ const styles = StyleSheet.create({
 		borderBottomColor: "#CAC9C9",
 		borderBottomWidth: 1,
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#cac9c9",
 		marginVertical: 16,
 	},
@@ -125,23 +123,22 @@ const styles = StyleSheet.create({
 	},
 	buttonTextStyle: {
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 		color: "#fff",
 	},
-    bottomText: {
-        color: '#C4C9C9',
-        fontSize: 14,
-		fontFamily: 'Red Rose',
-        marginTop: 8,
-        fontStyle: 'italic'
-    },
-    action: {
-        color: '#ed4949',
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: 16,
-		fontFamily: 'Red Rose',
-    }
+	bottomText: {
+		color: "#C4C9C9",
+		fontSize: 14,
+		fontFamily: "Red Rose",
+		marginTop: 8,
+		fontStyle: "italic",
+	},
+	action: {
+		color: "#ed4949",
+		fontStyle: "normal",
+		fontSize: 16,
+		fontFamily: "Red Rose",
+	},
 });
 
 export default Signup;

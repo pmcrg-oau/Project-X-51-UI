@@ -4,7 +4,7 @@ import {
 	View,
 	Text,
 	Image,
-	TouchableOpacity,
+	Pressable,
 	ScrollView,
 } from "react-native";
 
@@ -25,7 +25,7 @@ const LoginSignup = ({ setLoggedIn }) => {
 				<Banner signupBanner={true} />
 				<View style={styles.loginSignupContainer}>
 					<View style={styles.tab}>
-						<TouchableOpacity
+						<Pressable
 							style={[
 								styles.tabButtons,
 								activeTab === "signup" ? styles.activeTabButton : {},
@@ -40,8 +40,8 @@ const LoginSignup = ({ setLoggedIn }) => {
 							>
 								Sign Up
 							</Text>
-						</TouchableOpacity>
-						<TouchableOpacity
+						</Pressable>
+						<Pressable
 							style={[
 								styles.tabButtons,
 								activeTab === "login" ? styles.activeTabButton : {},
@@ -56,7 +56,7 @@ const LoginSignup = ({ setLoggedIn }) => {
 							>
 								Log In
 							</Text>
-						</TouchableOpacity>
+						</Pressable>
 					</View>
 
 					{activeTab === "signup" ? (
@@ -126,12 +126,12 @@ const styles = StyleSheet.create({
 	loginButton: {
 		color: "#fff",
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	signupButton: {
 		color: "#fff",
 		fontSize: 14,
-		fontFamily: 'Red Rose',
+		fontFamily: "Red Rose",
 	},
 	activeTabButton: {
 		backgroundColor: "#fff",

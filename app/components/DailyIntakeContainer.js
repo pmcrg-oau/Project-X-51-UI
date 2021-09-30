@@ -22,22 +22,17 @@ const styles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	dailyIntakeText: {
-		fontWeight: "bold",
 		color: "rgba(196, 196, 196, 0.53)",
 		fontSize: 12,
-		marginBottom: 5,
 		fontFamily: "Red Rose",
 	},
 	intakeResult: {
-		fontWeight: "bold",
 		color: "#fff",
 		fontSize: 36,
-		marginBottom: 15,
 		fontFamily: "Red Rose",
 	},
 	nutritionBreakText: {
 		color: "#c4c4c4",
-		fontWeight: "bold",
 		fontSize: 12,
 		fontFamily: "Red Rose",
 	},

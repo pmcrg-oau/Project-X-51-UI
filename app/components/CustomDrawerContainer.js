@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, Image, Pressable, Text, StyleSheet } from "react-native";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { EvilIcons, AntDesign } from "@expo/vector-icons";
 
@@ -11,7 +11,7 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 		<View style={{ flex: 1 }}>
 			<View style={styles.container}>
 				<DrawerContentScrollView {...props}>
-					<TouchableOpacity
+					<Pressable
 						style={styles.backButton}
 						onPress={() => props.navigation.closeDrawer()}
 					>
@@ -21,10 +21,10 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 							size={35}
 							color={"#ED4949"}
 						/>
-					</TouchableOpacity>
+					</Pressable>
 
 					<View style={styles.logoContainer}>
-						<TouchableOpacity
+						<Pressable
 							onPress={() => {
 								props.navigation.navigate("Profile");
 							}}
@@ -35,10 +35,10 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 								resizeMode={"cover"}
 								source={require("../assets/images/profile.png")}
 							/>
-						</TouchableOpacity>
+						</Pressable>
 					</View>
 
-					<TouchableOpacity
+					<Pressable
 						style={[
 							styles.navContainer,
 							routeNames[routeIndex] === "Home" && styles.navContainerActive,
@@ -62,9 +62,9 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 						>
 							Home
 						</Text>
-					</TouchableOpacity>
+					</Pressable>
 
-					<TouchableOpacity
+					<Pressable
 						style={[
 							styles.navContainer,
 							routeNames[routeIndex] === "BMIScreen" &&
@@ -92,9 +92,9 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 						>
 							BMI
 						</Text>
-					</TouchableOpacity>
+					</Pressable>
 
-					<TouchableOpacity
+					<Pressable
 						style={[
 							styles.navContainer,
 							routeNames[routeIndex] === "Profile" && styles.navContainerActive,
@@ -116,16 +116,16 @@ const CustomDrawerContainer = ({ setLoggedIn, ...props }) => {
 						>
 							Profile
 						</Text>
-					</TouchableOpacity>
+					</Pressable>
 				</DrawerContentScrollView>
 			</View>
 
-			<TouchableOpacity
+			<Pressable
 				style={styles.logoutContainer}
 				onPress={() => setLoggedIn(false)}
 			>
 				<Text style={styles.logoutText}>SIGN OUT</Text>
-			</TouchableOpacity>
+			</Pressable>
 		</View>
 	);
 };
@@ -180,14 +180,15 @@ const styles = StyleSheet.create({
 	},
 	drawerText: {
 		marginLeft: 16,
-		fontWeight: "bold",
 		color: "black",
+		fontFamily: "Rockwell",
 	},
 	drawerTextActive: {
 		color: "#ED4949",
 	},
 	logoutText: {
 		color: "#b23b3b",
+		fontFamily: "Red Rose",
 	},
 });
 

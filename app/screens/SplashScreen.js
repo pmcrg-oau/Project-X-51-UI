@@ -6,7 +6,10 @@ const SplashScreen = () => {
 	return (
 		<View style={styles.background}>
 			<View style={styles.whiteSplash}>
-				<Image style={styles.whiteSplashImage} source={require("../assets/images/splash-screen.png")} />
+				<Image
+					style={styles.whiteSplashImage}
+					source={require("../assets/images/splash-screen.png")}
+				/>
 			</View>
 			<View style={styles.bottomContent}>
 				<Text style={styles.bottomContentText}>
@@ -15,17 +18,17 @@ const SplashScreen = () => {
 
 				<View
 					style={{
-						width: '80%'
+						width: "80%",
 					}}
 				>
-                    <ProgressBar
-                        progress={50}
-                        height={5}
-                        indeterminate
-                        backgroundColor="rgba(237, 73, 73, 0.64)"
-                        trackColor="#fff"
-                    />
-                </View>
+					<ProgressBar
+						progress={50}
+						height={5}
+						indeterminate
+						backgroundColor="rgba(237, 73, 73, 0.64)"
+						trackColor="#fff"
+					/>
+				</View>
 			</View>
 		</View>
 	);
@@ -38,12 +41,12 @@ const styles = StyleSheet.create({
 		backgroundColor: "#ed4949",
 	},
 	whiteSplash: {
-		width: '100%',
+		width: "100%",
 		height: "50%",
 		marginBottom: 20,
 	},
 	whiteSplashImage: {
-		width: '100%',
+		width: "100%",
 		height: "100%",
 	},
 	bottomContent: {
@@ -55,7 +58,6 @@ const styles = StyleSheet.create({
 	},
 	bottomContentText: {
 		fontSize: 18,
-		fontWeight: "bold",
 		fontFamily: "Rockwell",
 		color: "#fff",
 		textAlign: "center",
