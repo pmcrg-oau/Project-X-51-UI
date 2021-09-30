@@ -51,15 +51,15 @@ const styles = StyleSheet.create({
 		fontFamily: "Red Rose",
 	},
 	topDiet: {
-		width: 70,
+		width: 90,
 		height: 'auto',
-		marginRight: 5,
+		marginRight: 16,
 	},
 	topDietImage: {
-		width: 70,
-		height: 70,
-		resizeMode: "contain",
-		marginRight: 5,
+		width: 90,
+		height: 90,
+		resizeMode: "stretch",
+		marginRight: 16,
 	},
 	topDietText: {
 		fontSize: 11,
