@@ -2,12 +2,12 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import CustomPieChart from "./PieChart";
 
-const ProgressChartWeeks = () => {
+const ProgressChartWeeks = ({ data }) => {
 	return (
 		<View style={styles.container}>
 			<Text style={styles.typeContainer}>Progress Last Weeks</Text>
 			<View style={styles.progressChartContainer}>
-				<CustomPieChart />
+				<CustomPieChart data={data}/>
 			</View>
 		</View>
 	);
