@@ -46,16 +46,16 @@ const styles = StyleSheet.create({
 		height: 'auto',
 		backgroundColor: 'transparent',
 	},
-    backgroundImage: {
+	backgroundImage: {
 		height: '100%',
 		minHeight: 200,
-		maxHeight: 230,
+		maxHeight: 250,
 	},
 	overlay: {
 		width: '100%',
 		height: '100%',
 		minHeight: 200,
-		maxHeight: 230,
+		maxHeight: 250,
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: 'rgba(237, 73, 73, 0.85)',
