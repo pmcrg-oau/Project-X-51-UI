@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import {
-	ScrollView,
-	StyleSheet,
-	View,
-	Text,
-	Image,
-	Pressable,
-} from "react-native";
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, View, Text, Pressable } from 'react-native';
 
-import Banner from "../../components/Banner";
-import BMICalculatorForm from "../../components/BMICalculatorForm";
+import Banner from '../../components/Banner';
+import BMICalculatorForm from '../../components/BMICalculatorForm';
 
 const BMICalculator = ({ navigation }) => {
-	const [gender, setGender] = useState("female");
+	const [gender, setGender] = useState('female');
 
 	return (
 		<View style={styles.container}>
@@ -28,14 +21,14 @@ const BMICalculator = ({ navigation }) => {
 						<Pressable
 							style={[
 								styles.tabButtons,
-								gender === "female" ? styles.activeTabButton : {},
+								gender === 'female' ? styles.activeTabButton : {},
 							]}
-							onPress={() => setGender("female")}
+							onPress={() => setGender('female')}
 						>
 							<Text
 								style={[
 									styles.femaleButton,
-									gender === "female" ? styles.active : {},
+									gender === 'female' ? styles.active : {},
 								]}
 							>
 								Female
@@ -44,14 +37,14 @@ const BMICalculator = ({ navigation }) => {
 						<Pressable
 							style={[
 								styles.tabButtons,
-								gender === "male" ? styles.activeTabButton : {},
+								gender === 'male' ? styles.activeTabButton : {},
 							]}
-							onPress={() => setGender("male")}
+							onPress={() => setGender('male')}
 						>
 							<Text
 								style={[
 									styles.maleButton,
-									gender === "male" ? styles.active : {},
+									gender === 'male' ? styles.active : {},
 								]}
 							>
 								Male
@@ -69,28 +62,28 @@ const BMICalculator = ({ navigation }) => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#fff",
-		height: "100%",
-		// fontFamily: "Red Rose",
+		backgroundColor: '#fff',
+		height: '100%',
+		fontFamily: "Red Rose",
 	},
 	scrollView: {
 		flexGrow: 1,
-		flexDirection: "column",
-		alignItems: "center",
+		flexDirection: 'column',
+		alignItems: 'center',
 		paddingBottom: 20,
 	},
 	bmiContainer: {
-		alignItems: "center",
-		backgroundColor: "#fff",
-		shadowColor: "#e5e5e5",
+		alignItems: 'center',
+		backgroundColor: '#fff',
+		shadowColor: '#e5e5e5',
 		shadowOffset: { width: 0, height: 4 },
 		shadowOpacity: 1,
 		shadowRadius: 4,
 		elevation: 3,
 		borderRadius: 30,
-		width: "100%",
+		width: '90%',
 		minHeight: 466,
-		maxWidth: 364,
+		minWidth: 364,
 		marginVertical: 0,
 		marginTop: -40,
 		paddingVertical: 57,
@@ -98,14 +91,14 @@ const styles = StyleSheet.create({
 	tab: {
 		width: 216,
 		height: 44,
-		flexDirection: "row",
-		justifyContent: "space-between",
-		alignItems: "center",
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		borderRadius: 20,
 		paddingHorizontal: 16,
 		paddingVertical: 8,
-		backgroundColor: "#ed4949",
-		shadowColor: "rgba(0, 0, 0, 0.25)",
+		backgroundColor: '#ed4949',
+		shadowColor: 'rgba(0, 0, 0, 0.25)',
 		shadowOffset: { width: 0, height: 4 },
 		shadowOpacity: 1,
 		shadowRadius: 4,
@@ -114,26 +107,26 @@ const styles = StyleSheet.create({
 	tabButtons: {
 		width: 87,
 		height: 28,
-		justifyContent: "center",
-		alignItems: "center",
+		justifyContent: 'center',
+		alignItems: 'center',
 		borderRadius: 10,
-		backgroundColor: "transparent",
+		backgroundColor: 'transparent',
 	},
 	maleButton: {
-		color: "#fff",
+		color: '#fff',
 		fontSize: 14,
-		fontFamily: "Red Rose",
+		fontFamily: 'Red Rose',
 	},
 	femaleButton: {
-		color: "#fff",
+		color: '#fff',
 		fontSize: 14,
-		fontFamily: "Red Rose",
+		fontFamily: 'Red Rose',
 	},
 	activeTabButton: {
-		backgroundColor: "#fff",
+		backgroundColor: '#fff',
 	},
 	active: {
-		color: "#ed4949",
+		color: '#ed4949',
 	},
 });
 

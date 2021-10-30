@@ -1,25 +1,25 @@
-import React from "react";
-import { Pressable, StyleSheet, Text } from "react-native";
-import { EvilIcons, AntDesign } from "@expo/vector-icons";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import React from 'react';
+import { Pressable, StyleSheet, Text } from 'react-native';
+import { EvilIcons, AntDesign } from '@expo/vector-icons';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import CustomDrawerContainer from "../components/CustomDrawerContainer";
-import Dashboard from "./Home/Dashboard";
-import BMIScreen from "./BMI/BMIScreen";
-import Profile from "./Profile";
+import CustomDrawerContainer from '../components/CustomDrawerContainer';
+import Dashboard from './Home/Dashboard';
+import BMIScreen from './BMI/BMIScreen';
+import Profile from './Profile';
 
-const DrawerScreen = ({ setLoggedIn }) => {
+const DrawerScreen = ({ setLoggedInUser }) => {
 	const Drawer = createDrawerNavigator();
 
 	return (
 		<Drawer.Navigator
-			initialRouteName="Home"
+			initialRouteName={'Home'}
 			drawerContent={(props) => (
-				<CustomDrawerContainer setLoggedIn={setLoggedIn} {...props} />
+				<CustomDrawerContainer setLoggedInUser={setLoggedInUser} {...props} />
 			)}
 		>
 			<Drawer.Screen
-				name="Home"
+				name='Home'
 				component={Dashboard}
 				options={({ navigation }) => ({
 					drawerLabel: () => null,
@@ -28,16 +28,16 @@ const DrawerScreen = ({ setLoggedIn }) => {
 						<Pressable onPress={() => navigation.openDrawer()}>
 							<EvilIcons
 								style={styles.iconStyle}
-								name={"navicon"}
+								name={'navicon'}
 								size={35}
-								color={"#ED4949"}
+								color={'#ED4949'}
 							/>
 						</Pressable>
 					),
 				})}
 			/>
 			<Drawer.Screen
-				name="BMIScreen"
+				name='BMIScreen'
 				component={BMIScreen}
 				options={({ navigation }) => ({
 					drawerLabel: () => null,
@@ -46,16 +46,16 @@ const DrawerScreen = ({ setLoggedIn }) => {
 						<Pressable onPress={() => navigation.openDrawer()}>
 							<EvilIcons
 								style={styles.iconStyle}
-								name={"navicon"}
+								name={'navicon'}
 								size={35}
-								color={"#ED4949"}
+								color={'#ED4949'}
 							/>
 						</Pressable>
 					),
 				})}
 			/>
 			<Drawer.Screen
-				name="Profile"
+				name='Profile'
 				component={Profile}
 				options={({ navigation }) => ({
 					drawerLabel: () => null,
@@ -64,9 +64,9 @@ const DrawerScreen = ({ setLoggedIn }) => {
 						<Pressable onPress={() => navigation.goBack()}>
 							<AntDesign
 								style={styles.iconStyle}
-								name={"arrowleft"}
+								name={'arrowleft'}
 								size={35}
-								color={"#ED4949"}
+								color={'#ED4949'}
 							/>
 						</Pressable>
 					),
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 	},
 	headerTextStyle: {
-		color: "#ed4949",
+		color: '#ed4949',
 		fontSize: 18,
-		fontFamily: "Red Rose",
+		fontFamily: 'Red Rose',
 		paddingRight: 10,
 	},
 });

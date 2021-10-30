@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from 'react';
 import {
 	View,
 	Text,
@@ -7,15 +7,18 @@ import {
 	Image,
 	FlatList,
 	Pressable,
-} from "react-native";
-import GestureRecognizer from "react-native-swipe-gestures";
+} from 'react-native';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import useAxios from 'axios-hooks';
 
-import BezierLineChart from "../components/BeizerLineChart";
-import profileData from "../dummyData/profileData";
+import BezierLineChart from '../components/BeizerLineChart';
+import { LoginContext } from '../contexts/LoginContext';
+import profileData from '../dummyData/profileData';
 
 const Profile = () => {
+	const { loggedInUser } = useContext(LoginContext);
 	const [paramIndex, setParamIndex] = useState(0);
-	const [titleText, setTitleText] = useState("Your Current Weight");
+	const [titleText, setTitleText] = useState('Your Current Weight');
 	const param = profileData[paramIndex];
 
 	const config = {
@@ -35,16 +38,37 @@ const Profile = () => {
 		);
 	};
 
+	const [{ loading }, getUserHistory] = useAxios(
+		{
+			url: '/api/v1/history',
+			method: 'get',
+		},
+		{ manual: true }
+	);
+
+	useEffect(() => {
+		const fetchUserHistory = async () => {
+			try {
+				const response = await getUserHistory();
+				console.log(response);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchUserHistory();
+	}, []);
+
 	useEffect(() => {
 		switch (paramIndex) {
 			case 0:
-				setTitleText("Your Current Weight");
+				setTitleText('Your Current Weight');
 				break;
 			case 1:
-				setTitleText("Your Current  BMI");
+				setTitleText('Your Current  BMI');
 				break;
 			case 2:
-				setTitleText("Calories left to burn");
+				setTitleText('Calories left to burn');
 				break;
 			default:
 				break;
@@ -63,10 +87,10 @@ const Profile = () => {
 						<Image
 							style={bannerStyles.image}
 							fadeDuration={0}
-							resizeMode={"cover"}
-							source={require("../assets/images/profile.png")}
+							resizeMode={'cover'}
+							source={require('../assets/images/profile.png')}
 						/>
-						<Text style={bannerStyles.text}>__webdot</Text>
+						<Text style={bannerStyles.text}>{loggedInUser.username}</Text>
 					</View>
 
 					<GestureRecognizer
@@ -113,23 +137,23 @@ const Profile = () => {
 
 const bannerStyles = StyleSheet.create({
 	container: {
-		backgroundColor: "#ed4949",
-		width: "100%",
+		backgroundColor: '#ed4949',
+		width: '100%',
 		minHeight: 350,
 		borderRadius: 10,
-		overflow: "hidden",
-		alignItems: "center",
+		overflow: 'hidden',
+		alignItems: 'center',
 		marginTop: -10,
 		paddingVertical: 25,
 	},
 	logoContainer: {
-		width: "100%",
+		width: '100%',
 		maxWidth: 145,
-		height: "auto",
-		overflow: "hidden",
-		alignItems: "center",
-		justifyContent: "center",
-		shadowColor: "#000",
+		height: 'auto',
+		overflow: 'hidden',
+		alignItems: 'center',
+		justifyContent: 'center',
+		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
 			height: 1,
@@ -139,64 +163,64 @@ const bannerStyles = StyleSheet.create({
 		elevation: 3,
 	},
 	text: {
-		color: "#fff",
+		color: '#fff',
 		fontSize: 12,
-		fontFamily: "Red Rose",
+		fontFamily: 'Red Rose',
 	},
 	image: {
-		resizeMode: "cover",
+		resizeMode: 'cover',
 		width: 145,
 		height: 145,
 		borderRadius: 145 / 2,
 	},
 	paramPreview: {
-		backgroundColor: "#fff",
-		width: "85%",
+		backgroundColor: '#fff',
+		width: '85%',
 		minHeight: 110,
 		minWidth: 272,
 		maxWidth: 400,
-		alignItems: "center",
+		alignItems: 'center',
 		borderRadius: 20,
 		paddingVertical: 12,
 		marginVertical: 25,
 	},
 	titleText: {
-		color: "rgba(237, 73, 73, 0.75)",
+		color: 'rgba(237, 73, 73, 0.75)',
 		marginBottom: 16,
-		fontFamily: "Rockwell",
+		fontFamily: 'Rockwell',
 	},
 	currentDataText: {
 		fontSize: 48,
-		fontFamily: "Rockwell",
-		color: "#ed4949",
+		fontFamily: 'Rockwell',
+		color: '#ed4949',
 	},
 	barIndicator: {
-		width: "100%",
+		width: '100%',
 		marginTop: 10,
-		alignItems: "center",
+		alignItems: 'center',
 	},
 	bar: {
-		backgroundColor: "rgba(0, 0, 0, 0.25)",
+		backgroundColor: 'rgba(0, 0, 0, 0.25)',
 		width: 36,
 		height: 5,
 		borderRadius: 10,
 		marginRight: 20,
 	},
 	activeBar: {
-		backgroundColor: "#fff",
+		backgroundColor: '#fff',
 	},
 });
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#fff",
-		height: "100%",
+		backgroundColor: '#fff',
+		height: '100%',
 	},
 	scrollView: {
 		flexGrow: 1,
-		flexDirection: "column",
-		alignItems: "center",
+		flexDirection: 'column',
+		alignItems: 'center',
 		paddingBottom: 20,
 	},
 });

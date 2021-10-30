@@ -1,39 +1,39 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import BMICalculator from "./BMICalculator";
-import BMIResult from "./BMIResult";
+import BMICalculator from './BMICalculator';
+import BMIResult from './BMIResult';
 
 const Stack = createStackNavigator();
 
 const BMIScreen = () => {
 	return (
 		<Stack.Navigator
-			headerMode="screen"
 			screenOptions={{
+				headerMode: 'screen',
 				headerShown: true,
 				headerStyle: {
-					backgroundColor: "#ed4949",
+					backgroundColor: '#ed4949',
 				},
-				headerTintColor: "#fff",
+				headerTintColor: '#fff',
 				headerTitleStyle: {
-					fontWeight: "bold",
+					fontWeight: 'bold',
 				},
 			}}
 		>
 			<Stack.Screen
-				name="BMICalculator"
+				name='BMICalculator'
 				component={BMICalculator}
 				options={{
-					title: "Calculate BMI",
+					title: 'Calculate BMI',
 				}}
 			/>
 			<Stack.Screen
-				name="BMIResult"
+				name='BMIResult'
 				component={BMIResult}
 				options={{
-					title: "BMI Result",
-					headerBackTitle: "Back",
+					title: 'BMI Result',
+					headerBackTitle: 'Back',
 				}}
 			/>
 		</Stack.Navigator>

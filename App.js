@@ -1,63 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Pressable, Text } from "react-native";
-import { useFonts } from "expo-font";
-// import AppLoading from "expo-app-loading";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { AntDesign } from "@expo/vector-icons";
+import React, { useEffect, useState } from 'react';
+import { useFonts } from 'expo-font';
+import { NavigationContainer } from '@react-navigation/native';
 
-import LoginSignup from "./app/screens/LoginSignup";
-import SplashScreen from "./app/screens/SplashScreen";
-import MealPlan from "./app/screens/Home/MealPlan";
-import Workout from "./app/screens/Home/Workout";
-import Water from "./app/screens/Home/Water";
-import DrawerScreen from "./app/screens/DrawerScreen";
-import Menu from "./app/screens/Home/Menu";
-import TodayMealsContextProvider from "./app/components/TodayMealsContextProvider";
+import SplashScreen from './app/screens/SplashScreen';
+import LoginContextProvider from './app/contexts/LoginContext';
+import AppContent from './AppContent';
 
 export default function App() {
 	const [showSplashScreen, setShowSplashScreen] = useState(true);
-	const [loggedIn, setLoggedIn] = useState(true);
-	const Stack = createStackNavigator();
-
-	const verticalAnimation = {
-		gestureDirection: "vertical",
-		cardStyleInterpolator: ({ current, layouts }) => {
-			return {
-				cardStyle: {
-					transform: [
-						{
-							translateY: current.progress.interpolate({
-								inputRange: [0, 1],
-								outputRange: [layouts.screen.height, 0],
-							}),
-						},
-					],
-				},
-			};
-		},
-	};
-
-	const horizontalAnimation = {
-		cardStyleInterpolator: ({ current, layouts }) => {
-			return {
-				cardStyle: {
-					transform: [
-						{
-							translateX: current.progress.interpolate({
-								inputRange: [0, 1],
-								outputRange: [layouts.screen.width, 0],
-							}),
-						},
-					],
-				},
-			};
-		},
-	};
 
 	let [fontsLoaded] = useFonts({
-		"Red Rose": require("./app/assets/fonts/RedRose-VariableFont_wght.ttf"),
-		Rockwell: require("./app/assets/fonts/rockb.ttf"),
+		'Red Rose': require('./app/assets/fonts/RedRose-VariableFont_wght.ttf'),
+		Rockwell: require('./app/assets/fonts/rockb.ttf'),
 	});
 
 	useEffect(() => {
@@ -73,119 +27,10 @@ export default function App() {
 	} else {
 		return (
 			<NavigationContainer>
-				{loggedIn ? (
-					<TodayMealsContextProvider>
-						<Stack.Navigator headerMode="screen">
-							<Stack.Screen
-								name="Drawer"
-								children={() => <DrawerScreen setLoggedIn={setLoggedIn} />}
-								options={{
-									headerShown: false,
-								}}
-							/>
-							<Stack.Screen
-								name="Meal Plan"
-								component={MealPlan}
-								options={({ navigation }) => ({
-									title: null,
-									headerLeft: () => (
-										<Pressable onPress={() => navigation.goBack()}>
-											<AntDesign
-												style={styles.iconStyle}
-												name={"arrowleft"}
-												size={35}
-												color={"#ED4949"}
-											/>
-										</Pressable>
-									),
-									headerRight: () => (
-										<Text style={styles.headerTextStyle}>Meal Plan</Text>
-									),
-								})}
-							/>
-							<Stack.Screen
-								name="Menu"
-								component={Menu}
-								options={({ navigation }) => ({
-									title: null,
-									headerLeft: () => (
-										<Pressable onPress={() => navigation.goBack()}>
-											<AntDesign
-												style={styles.iconStyle}
-												name={"arrowleft"}
-												size={35}
-												color={"#ED4949"}
-											/>
-										</Pressable>
-									),
-									headerRight: () => (
-										<Text style={styles.headerTextStyle}>Menu</Text>
-									),
-									...verticalAnimation,
-								})}
-							/>
-							<Stack.Screen
-								name="Workout"
-								component={Workout}
-								options={({ navigation }) => ({
-									title: null,
-									headerLeft: () => (
-										<Pressable onPress={() => navigation.goBack()}>
-											<AntDesign
-												style={styles.iconStyle}
-												name={"arrowleft"}
-												size={35}
-												color={"#ED4949"}
-											/>
-										</Pressable>
-									),
-									headerRight: () => (
-										<Text style={styles.headerTextStyle}>Workout</Text>
-									),
-									...horizontalAnimation,
-								})}
-							/>
-							<Stack.Screen
-								name="Water"
-								component={Water}
-								options={({ navigation }) => ({
-									title: null,
-									headerLeft: () => (
-										<Pressable onPress={() => navigation.goBack()}>
-											<AntDesign
-												style={styles.iconStyle}
-												name={"arrowleft"}
-												size={35}
-												color={"#ED4949"}
-											/>
-										</Pressable>
-									),
-									headerRight: () => (
-										<Text style={styles.headerTextStyle}>Water</Text>
-									),
-									...verticalAnimation,
-								})}
-							/>
-						</Stack.Navigator>
-					</TodayMealsContextProvider>
-				) : (
-					<>
-						<LoginSignup setLoggedIn={setLoggedIn} />
-					</>
-				)}
+				<LoginContextProvider>
+					<AppContent />
+				</LoginContextProvider>
 			</NavigationContainer>
 		);
 	}
 }
-
-const styles = StyleSheet.create({
-	iconStyle: {
-		marginLeft: 10,
-	},
-	headerTextStyle: {
-		color: "#ed4949",
-		fontSize: 18,
-		fontFamily: "Red Rose",
-		paddingRight: 10,
-	},
-});

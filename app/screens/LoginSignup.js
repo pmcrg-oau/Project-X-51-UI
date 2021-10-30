@@ -12,7 +12,7 @@ import Banner from "../components/Banner";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 
-const LoginSignup = ({ setLoggedIn }) => {
+const LoginSignup = ({ setLoggedInUser }) => {
 	const [activeTab, setActiveTab] = useState("signup");
 
 	return (
@@ -60,9 +60,9 @@ const LoginSignup = ({ setLoggedIn }) => {
 					</View>
 
 					{activeTab === "signup" ? (
-						<Signup setActiveTab={setActiveTab} setLoggedIn={setLoggedIn} />
+						<Signup setActiveTab={setActiveTab} setLoggedInUser={setLoggedInUser} />
 					) : (
-						<Login setActiveTab={setActiveTab} setLoggedIn={setLoggedIn} />
+						<Login setActiveTab={setActiveTab} setLoggedInUser={setLoggedInUser} />
 					)}
 				</View>
 			</ScrollView>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#fff",
 		height: "100%",
-		// fontFamily: "Red Rose",
+		fontFamily: "Red Rose",
 	},
 	scrollView: {
 		flexGrow: 1,
@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
 		shadowRadius: 4,
 		elevation: 3,
 		borderRadius: 30,
-		width: "100%",
+		width: "90%",
 		minHeight: 466,
-		maxWidth: 364,
+		minWidth: 364,
 		marginVertical: 0,
 		marginTop: -40,
 		paddingVertical: 57,

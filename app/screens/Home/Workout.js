@@ -31,6 +31,10 @@ const Workout = () => {
 						<Text style={[styles.text, styles.usernameText]}>Webdot__</Text>
 					</View>
 				</ImageBackground>
+
+				<View style={styles.bottomContainer}>
+					<Text style={{ fontFamily: 'Red Rose' }}>Coming Soon...</Text>
+				</View>
 			</ScrollView>
 		</View>
 	);
@@ -38,6 +42,9 @@ const Workout = () => {
 
 const styles = StyleSheet.create({
 	container: {
+		flex: 1,
+	},
+	bottomContainer: {
 		flex: 1,
 	},
 	background: {
