@@ -15,6 +15,16 @@
         "test",
         "maintenance"
       ]
+    },
+    {
+      "login": "KrazyKahunaGuy",
+      "name": "KrazyKahunaGuy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54121054?v=4",
+      "profile": "https://github.com/KrazyKahunaGuy",
+      "contributions": [
+        "ideas",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
